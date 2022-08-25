@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../config/updateConfig.dart';
 
@@ -23,6 +27,22 @@ class UpdateProfileUI extends StatefulWidget {
 }
 
 class _UpdateProfileUIState extends State<UpdateProfileUI> {
+    File? image;
+  Future _chooseImage() async {
+    try {
+      XFile? image = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+    );
+    if(image == null) return;
+    final imageTemp = File(image.path);
+    setState(() => this.image = imageTemp);
+    } on PlatformException catch (e) {
+      print('failed');
+    }
+    
+    
+}
+  final picker = ImagePicker();
   bool _secureText = true;
   TextEditingController updatedNameController = TextEditingController();
   @override
@@ -66,18 +86,27 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                   alignment: Alignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
-                      child: CircleAvatar(
+                      onTap: () {
+                        _chooseImage();
+                      },
+                      child: image != null ? 
+                      CircleAvatar(
+                        backgroundImage:FileImage(image!),
+                        radius: 55,
+                      )
+                       :
+                      CircleAvatar(
                         backgroundImage:
                             AssetImage('asset/updatepage/black.png'),
                         radius: 55,
                       ),
                     ),
+                    image == null ?
                     SvgPicture.asset(
                       'asset/updatepage/plus.svg',
                       color: Colors.white,
                       height: 60,
-                    ),
+                    ):Container(),
                   ],
                 ),
               ),
