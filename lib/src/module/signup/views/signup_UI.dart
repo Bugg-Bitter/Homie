@@ -375,7 +375,8 @@ Future createNewUser(
     required String newDOB,
     required String newPhone,
     required String newPassword}) async {
-  final newPersonInfo = FirebaseFirestore.instance.collection('newUser').doc();
+  final newPersonInfo =
+      FirebaseFirestore.instance.collection('newUser').doc(newEmail);
   final jsonData = {
     'name': newName,
     'gender': newGender,

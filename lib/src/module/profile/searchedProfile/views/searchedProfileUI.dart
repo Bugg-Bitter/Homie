@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:homie/src/module/search/config/search_config.dart';
 import 'package:homie/src/module/search/views/search_UI.dart';
 
@@ -61,6 +62,11 @@ class SearchedProfileUI extends StatefulWidget {
 }
 
 class _SearchedProfileUIState extends State<SearchedProfileUI> {
+  static final CameraPosition _kGooglePlex = const CameraPosition(
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
+  );
+
   @override
   Widget build(BuildContext context) {
     double ScreenHeight = MediaQuery.of(context).size.height;
@@ -96,7 +102,8 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(top: ScreenHeight / 30.0),
+                                padding:
+                                    EdgeInsets.only(top: ScreenHeight / 30.0),
                                 child: Text(
                                   'Address: 32, Rabindra Sarani, Sector – 7, Uttara, Dhaka – 1230',
                                   textAlign: TextAlign.center,
@@ -315,12 +322,15 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                           SizedBox(
                             height: 15.0,
                           ),
-                          Text(
-                            'Location',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 106, 120, 142),
+                          Padding(
+                            padding: EdgeInsets.only(top: ScreenHeight / 20.0),
+                            child: Text(
+                              'Location',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromARGB(255, 106, 120, 142),
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -329,10 +339,12 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                           GestureDetector(
                             onTap: () {},
                             child: Container(
+                              height: ScreenHeight / 3.0,
+                              width: double.infinity,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
-                                child: Image.network(
-                                    'https://wp-assets.infinum.com/uploads/2022/03/creating-custom-markers-on-google-maps-in-flutter-apps-1.png'),
+                                child: GoogleMap(
+                                    initialCameraPosition: _kGooglePlex),
                               ),
                             ),
                           ),

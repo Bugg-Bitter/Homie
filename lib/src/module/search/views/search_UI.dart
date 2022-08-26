@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:homie/src/module/search/components/search_info_component.dart';
@@ -10,7 +11,6 @@ class SearchStart extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
       home: SearchUI(),
     );
   }
@@ -30,14 +30,13 @@ class _SearchUIState extends State<SearchUI> {
     double ScreenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset :false,
+        resizeToAvoidBottomInset: false,
         body: Container(
           width: double.infinity,
           height: double.infinity,
           color: Color(0xFFFAFAFE),
           child: Expanded(
             child: Column(
-              
               children: [
                 Stack(
                   alignment: Alignment.center,
@@ -46,7 +45,11 @@ class _SearchUIState extends State<SearchUI> {
                       'asset/search/banner.png',
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(ScreenWidth / 7.0, ScreenHeight / 8.0, ScreenWidth / 7.0, ScreenHeight / 50.0),
+                      padding: EdgeInsets.fromLTRB(
+                          ScreenWidth / 7.0,
+                          ScreenHeight / 8.0,
+                          ScreenWidth / 7.0,
+                          ScreenHeight / 50.0),
                       child: TextField(
                         mouseCursor: MouseCursor.defer,
                         // controller: email,
@@ -62,7 +65,6 @@ class _SearchUIState extends State<SearchUI> {
                       ),
                     ),
                   ],
-                  
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
@@ -205,8 +207,8 @@ class _SearchUIState extends State<SearchUI> {
                             });
                       } else if (flagOfmodules == 2) {
                         return FutureBuilder(
-                            future: storage
-                                .pharmDownloadURL('${pharmacyImages[index]}.jpeg'),
+                            future: storage.pharmDownloadURL(
+                                '${pharmacyImages[index]}.jpeg'),
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               if (snapshot.connectionState ==
@@ -237,8 +239,8 @@ class _SearchUIState extends State<SearchUI> {
                             });
                       } else {
                         return FutureBuilder(
-                            future: storage
-                                .hosDownloadURL('${hospitalImages[index]}.jpeg'),
+                            future: storage.hosDownloadURL(
+                                '${hospitalImages[index]}.jpeg'),
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               if (snapshot.connectionState ==
