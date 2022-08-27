@@ -85,6 +85,7 @@ class InfoComponent extends StatelessWidget {
                                     assignedHospital: hospitalNames[index],
                                     specialist:degree,
                                     department:departments[index],
+                                    tracker: index,
                                   )));
                     },
                     child: Container(

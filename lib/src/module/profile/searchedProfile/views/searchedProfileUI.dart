@@ -13,7 +13,7 @@ class SearchedProfileStart extends StatelessWidget {
     required this.assignedHospital,
     required this.specialist,
     required this.department,
-    // required this.locationCordinets,
+    required this.tracker,
     // required this.phoneNo
   }) : super(key: key);
   final String searchedImage;
@@ -22,7 +22,7 @@ class SearchedProfileStart extends StatelessWidget {
   final String assignedHospital;
   final String specialist;
   final String department;
-  // final List<String> locationCordinets;
+  final int tracker;
   // final int phoneNo;
   @override
   Widget build(BuildContext context) {
@@ -35,21 +35,23 @@ class SearchedProfileStart extends StatelessWidget {
         linkedHospital: assignedHospital,
         linkedSpecialist: specialist,
         linkedDepartment: department,
+        linkedTracker: tracker,
       ),
     );
   }
 }
 
 class SearchedProfileUI extends StatefulWidget {
-  const SearchedProfileUI(
-      {Key? key,
-      required this.linkedImage,
-      required this.linkedName,
-      required this.linkedDesignation,
-      required this.linkedHospital,
-      required this.linkedSpecialist,
-      required this.linkedDepartment})
-      : super(key: key);
+  const SearchedProfileUI({
+    Key? key,
+    required this.linkedImage,
+    required this.linkedName,
+    required this.linkedDesignation,
+    required this.linkedHospital,
+    required this.linkedSpecialist,
+    required this.linkedDepartment,
+    required this.linkedTracker,
+  }) : super(key: key);
 
   final String linkedImage;
   final String linkedName;
@@ -57,18 +59,32 @@ class SearchedProfileUI extends StatefulWidget {
   final String linkedHospital;
   final String linkedSpecialist;
   final String linkedDepartment;
+  final int linkedTracker;
   @override
   State<SearchedProfileUI> createState() => _SearchedProfileUIState();
 }
 
 class _SearchedProfileUIState extends State<SearchedProfileUI> {
-  static final CameraPosition _kGooglePlex = const CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+  static final CameraPosition _doctorsArea = CameraPosition(
+    target: LatLng(23.872633449925942, 90.3969710662202),
+    zoom: 12.4746,
   );
 
+  static final Marker _doctorsAreaMarker = Marker(
+    markerId: MarkerId('_doctorsArea'),
+    infoWindow: InfoWindow(title: 'Doctor'),
+    icon: BitmapDescriptor.defaultMarker,
+    position: LatLng(23.872633449925942, 90.3969710662202),
+  );
+  var counter = 0;
   @override
   Widget build(BuildContext context) {
+    geoPoints;
+    // print("${widget.linkedTracker}");
+
+    Map<String, String>? tempMap = geoPoints["${widget.linkedTracker}"];
+    print("${tempMap!["long"]}");
+    // print("${geoPoints["${widget.linkedTracker}"]["lat"]}");
     double ScreenHeight = MediaQuery.of(context).size.height;
     double ScreenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -344,7 +360,24 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: GoogleMap(
-                                    initialCameraPosition: _kGooglePlex),
+                                  initialCameraPosition: CameraPosition(
+                                    target: LatLng(
+                                        double.parse(tempMap["long"]!),
+                                        double.parse(tempMap["lat"]!)),
+                                    zoom: 12.4746,
+                                  ),
+                                  markers: {
+                                    _doctorsAreaMarker,
+                                    Marker(
+                                        markerId: MarkerId('_doctorsArea'),
+                                        infoWindow: InfoWindow(title: 'Doctor'),
+                                        icon: BitmapDescriptor.defaultMarker,
+                                        position: LatLng(
+                                        double.parse(tempMap["long"]!),
+                                        double.parse(tempMap["lat"]!)),
+                                     ),
+                                  },
+                                ),
                               ),
                             ),
                           ),
