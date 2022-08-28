@@ -157,17 +157,18 @@ class _ResetPasswordUIState extends State<ResetPasswordUI> {
   }
   
   Future _resetPassword() async{
-    // showDialog(context: context, 
-    // barrierDismissible: false,
-    // builder:(BuildContext context) => Center(
-    //             child: Container(
-    //           height: double.infinity,
-    //           width: double.infinity,
-    //           color: Color(0xff1A1A1A),
-    //           child: spinKit,
-    //         )));
+    
 try {
   await FirebaseAuth.instance.sendPasswordResetEmail(email: resetEmailController.text.trim());
+  showDialog(context: context, 
+    barrierDismissible: false,
+    builder:(BuildContext context) => Center(
+                child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Color(0xff1A1A1A),
+              child: spinKit,
+            )));
     resetMailMsg('Password Reset Email sent');
     Navigator.of(context).popUntil((route) => route.isFirst);
 } on FirebaseAuthException catch (e) {

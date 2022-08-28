@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,6 +49,8 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
   TextEditingController updatedEmailController = TextEditingController();
   TextEditingController updatedDOBController = TextEditingController();
   TextEditingController updatedCellController = TextEditingController();
+  TextEditingController updatedPasswordController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -275,7 +279,36 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
-          
+                /// updated Password no.
+                Padding(
+                  padding: EdgeInsets.only(
+                      top: ScreenHeight / 40.0, right: 40, left: 40),
+                  child: TextFormField(
+                    controller: updatedPasswordController,
+                    decoration: InputDecoration(
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        errorStyle: TextStyle(
+                            fontFamily: 'montserrat',
+                            fontSize: 14.0,
+                            color: Colors.redAccent),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        filled: true,
+                        hintStyle: TextStyle(color: Colors.grey[800]),
+                        hintText: "  ${updatedHintTxts[5]}",
+                        fillColor: Colors.white70),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return '${updatedErrorTxts[5]}';
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsets.only(
                     top: ScreenHeight / 19.0,
@@ -285,7 +318,19 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     width: ScreenWidth / 2.0,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        final docUser = FirebaseFirestore.instance.collection('newUser').doc(updatedEmailController.text.trim());
+
+                        docUser.update({
+                          'name':updatedNameController.text,
+                          'password':updatedPasswordController.text,
+                          'phone':updatedCellController.text,
+                          'gender':updatedGenderController.text,
+                          'email':updatedEmailController.text,
+                          'dateOfBirth':updatedDOBController.text,
+                        });
+                        _updatedUser(updatedEmailController.text.trim(),updatedPasswordController.text.trim());
+                      },
                       child: Text(
                         'Update',
                         style: TextStyle(
@@ -312,4 +357,12 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
       ),
     );
   }
+  Future _updatedUser(String newEmail,String newPass)async{
+  try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: newEmail, password: newPass);
+    print('Successfully created new user !');
+  } on FirebaseAuthException catch (e) {
+    print("Exception is $e");
+  }
+}
 }
