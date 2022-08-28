@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:homie/src/config/config.dart';
 import 'package:homie/src/module/profile/resetPassword/view/resetPassword.dart';
 import 'package:homie/src/module/profile/updateProfile/views/updateProfileUI.dart';
+import 'package:homie/src/module/search/config/search_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileStart extends StatelessWidget {
   const ProfileStart({Key? key}) : super(key: key);
@@ -18,11 +22,22 @@ class ProfileStart extends StatelessWidget {
 class ProfileUI extends StatefulWidget {
   const ProfileUI({Key? key}) : super(key: key);
 
+  
   @override
   State<ProfileUI> createState() => _ProfileUIState();
 }
 
 class _ProfileUIState extends State<ProfileUI> {
+  String? loggedInUserMail = '';
+  String? userName = '';
+  String? userDOB = '';
+  String? userPhone = '';
+  @override
+  void initState() {
+    super.initState();
+    getEmail();
+    getOtherInfo();
+  }
   @override
   Widget build(BuildContext context) {
     double ScreenHeight = MediaQuery.of(context).size.height;
@@ -102,63 +117,119 @@ class _ProfileUIState extends State<ProfileUI> {
                           padding: EdgeInsets.only(left: 13.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              'asset/profile/profile.png',
-                              height: 80.0,
-                              width: 80.0,
-                            ),
+                            child: FutureBuilder(
+                                future: storage.userProfilePicDownloadURL(
+                                    '${loggedInUserMail}'),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<String> snapshot) {
+                                  if (snapshot.connectionState ==
+                                          ConnectionState.done &&
+                                      snapshot.hasData) {
+                                        
+                                    return Image.network(
+                                      snapshot.data!,
+                                      height: 80.0,
+                                      width: 80.0,
+                                    );
+                                  }
+                                  if (snapshot.connectionState ==
+                                          ConnectionState.waiting ||
+                                      !snapshot.hasData) {
+                                    return Center(
+                                        child: Padding(
+                                      padding: EdgeInsets.only(
+                                          top: ScreenHeight / 20.0),
+                                      child: Container(
+                                          height: 40,
+                                          width: 40,
+                                          child: CircularProgressIndicator()),
+                                    ));
+                                  } else {
+                                    return Container();
+                                  }
+                                }),
+                            // loadimagefromFirebase
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: 10.0, bottom: 10.0, left: 20.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(
-                                'Rifat Ahmed',
+                        FutureBuilder<User?>(
+                          future: readUserInfo(),
+                          builder:
+                              (BuildContext context, AsyncSnapshot snapshot) {
+                            if (snapshot.hasError) {
+                              return Text(
+                                'connection dosn\'t stablished Properly',
                                 style: TextStyle(
-                                    fontFamily: 'montserrat',
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today_outlined,
-                                    size: 18.0,
-                                    color: Color(0xFF1648CE),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 8.0),
-                                    child: Text(
-                                      '04.01.1999',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 12.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(
-                                      Icons.phone_rounded,
-                                      size: 18.0,
-                                      color: Color(0xFF1648CE),
-                                    ),
-                                    Text(
-                                      '+01712345678',
-                                      style: TextStyle(color: Colors.black),
+                                    fontSize: 14.0, color: Colors.black),
+                              );
+                            } else if (snapshot.hasData) {
+                              final user = snapshot.data;
+                              return user == null
+                                  ? Center(
+                                      child: Text('No User Found'),
                                     )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                                  : Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 10.0, bottom: 10.0, left: 20.0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Text(
+                                           updateInfoTracker > 0 ?userName : user.name,
+                                            style: TextStyle(
+                                                fontFamily: 'montserrat',
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Icon(
+                                                Icons.calendar_today_outlined,
+                                                size: 18.0,
+                                                color: Color(0xFF1648CE),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 8.0),
+                                                child: Text(
+                                                  updateInfoTracker > 0 ?userDOB : user.dob,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsets.only(left: 12.0),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Icon(
+                                                  Icons.phone_rounded,
+                                                  size: 18.0,
+                                                  color: Color(0xFF1648CE),
+                                                ),
+                                                Text(
+                                                  updateInfoTracker > 0 ?userPhone : user.phoneNo,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                            } else {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                          },
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 40.0, bottom: 30.0),
@@ -442,4 +513,53 @@ class _ProfileUIState extends State<ProfileUI> {
       ),
     );
   }
+  Future<void> getOtherInfo()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userName = prefs.getString('updatedName');
+      userDOB = prefs.getString('updatedBirth');
+      userPhone = prefs.getString('updatedPhone');
+    });
+  }
+
+  Future<User?> readUserInfo() async {
+    final onlyDocUser =
+        FirebaseFirestore.instance.collection('newUser').doc(loggedInUserMail);
+    final snapshot = await onlyDocUser.get();
+    if (snapshot.exists) return User.fromJson(snapshot.data()!);
+  }
+  Future<String?> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+     setState(() {
+       loggedInUserMail =   prefs.getString('userEmail');
+       print(loggedInUserMail);
+     });
+     return loggedInUserMail;
+  }
+}
+
+class User {
+  final String name;
+  final String dob;
+  final String phoneNo;
+
+  User({
+    required this.phoneNo,
+    required this.name,
+    required this.dob,
+
+    // required this.location
+  });
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'dateOfBirth': dob,
+        'phone': phoneNo,
+      };
+
+  static User fromJson(Map<String, dynamic> json) => User(
+        name: json['name'],
+        dob: json['dateOfBirth'],
+        phoneNo: json['phone'],
+      );
 }

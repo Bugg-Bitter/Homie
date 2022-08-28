@@ -52,4 +52,13 @@ class Storage {
     String downloadURL = await storage.ref('pharmacies/$imageName').getDownloadURL();
     return downloadURL;
   }
+
+  // User Pictures ....
+  Future<String> userProfilePicDownloadURL(String imageName) async {
+    String downloadURL = await storage.ref('newUsersProfilePic/$imageName').getDownloadURL();
+    return downloadURL;
+  }
+  
 }
+
+

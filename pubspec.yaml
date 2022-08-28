@@ -27,6 +27,7 @@ dependencies:
   firebase_core: ^1.6.0
   file_picker: ^4.0.3
   google_maps_flutter: ^2.1.12
+  shared_preferences: ^2.0.15
 
 
 
@@ -82,18 +83,8 @@ flutter:
     - asset/updatepage/black.png
     - asset/resetpage/resetBanner.svg
     - asset/medicalreportpage/reportBanner.svg
+    - asset/dailyReport/emoji.png
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
   fonts:
     - family: montserrat
       fonts:

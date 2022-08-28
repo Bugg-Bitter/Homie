@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:homie/src/module/signup/views/signup_UI.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -208,6 +209,11 @@ class _LoginScreenState extends State<LoginScreen> {
     final isValid = formKey.currentState!.validate();
     if(isValid){
       formKey.currentState!.save();
+      // signedInEmail = emailController.text.trim();
+      // signedInPass = passwordController.text.trim();
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('userEmail', emailController.text);
+      print('Email has been saved');
       await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),

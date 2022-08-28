@@ -2,12 +2,17 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../config/config.dart';
 import '../../config/updateConfig.dart';
+import '../config/firebaseApi.dart';
 
 class UpdateProfileStart extends StatelessWidget {
   const UpdateProfileStart({Key? key}) : super(key: key);
@@ -30,6 +35,7 @@ class UpdateProfileUI extends StatefulWidget {
 
 class _UpdateProfileUIState extends State<UpdateProfileUI> {
     File? image;
+    
   Future _chooseImage() async {
     try {
       XFile? image = await ImagePicker().pickImage(
@@ -51,7 +57,13 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
   TextEditingController updatedCellController = TextEditingController();
   TextEditingController updatedPasswordController = TextEditingController();
   
-
+  String? loggedInUserMail = '';
+  @override
+  void initState() {
+    
+    super.initState();
+    getEmail();
+  }
   @override
   Widget build(BuildContext context) {
     double ScreenWidth = MediaQuery.of(context).size.width;
@@ -319,6 +331,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
+                        updateInfoTracker++;
                         final docUser = FirebaseFirestore.instance.collection('newUser').doc(updatedEmailController.text.trim());
 
                         docUser.update({
@@ -329,7 +342,15 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                           'email':updatedEmailController.text,
                           'dateOfBirth':updatedDOBController.text,
                         });
-                        _updatedUser(updatedEmailController.text.trim(),updatedPasswordController.text.trim());
+                        _updatedUser(updatedEmailController.text.trim(),
+                        updatedPasswordController.text.trim());
+                        uploadProfilePic();
+                        updatedNameController.clear();
+                        updatedPasswordController.clear();
+                        updatedGenderController.clear();
+                        updatedEmailController.clear();
+                        updatedDOBController.clear();
+                        updatedCellController.clear();
                       },
                       child: Text(
                         'Update',
@@ -364,5 +385,26 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
   } on FirebaseAuthException catch (e) {
     print("Exception is $e");
   }
+}
+  Future<String?> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+     setState(() {
+       loggedInUserMail =   prefs.getString('userEmail');
+       print(loggedInUserMail);
+     });
+     return loggedInUserMail;
+  }
+Future uploadProfilePic()async {
+
+  if(image == null){
+    return;
+  }
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('updatedName', updatedNameController.text);
+      prefs.setString('updatedBirth', updatedDOBController.text);
+      prefs.setString('updatedPhone', updatedCellController.text);
+  final filename = loggedInUserMail;
+  final destination = 'newUsersProfilePic/$filename';
+  FirebaseApi.uploadFile(destination,image!);
 }
 }
