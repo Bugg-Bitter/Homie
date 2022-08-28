@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -50,6 +51,7 @@ class _SignUpUIState extends State<SignUpUI> {
   ];
 
   final formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -297,6 +299,7 @@ class _SignUpUIState extends State<SignUpUI> {
                           final fullDateOfBirth = dobController.text;
                           final fullPhoneNumber = phoneController.text;
                           final fullPassword = passwordController.text;
+                    _signUp(fullEmail,fullPassword);
                           createNewUser(
                               newName: fullName,
                               newGender: fullGender,
@@ -365,6 +368,14 @@ class _SignUpUIState extends State<SignUpUI> {
         ),
       ),
     );
+  }
+}
+Future _signUp(String newEmail,String newPass)async{
+  try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: newEmail, password: newPass);
+    print('Successfully created new user !');
+  } on FirebaseAuthException catch (e) {
+    print("Exception is $e");
   }
 }
 
