@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:homie/src/module/search/components/search_info_component.dart';
@@ -187,7 +187,8 @@ class _SearchUIState extends State<SearchUI> {
                                     imageLink: snapshot.data!,
                                     listNames: DocNames,
                                     listInfo: Designations,
-                                    index: index);
+                                    index: index,
+                                    currentStateTitle: 'Doctor',);
                               }
                               if (snapshot.connectionState ==
                                       ConnectionState.waiting ||
@@ -219,7 +220,7 @@ class _SearchUIState extends State<SearchUI> {
                                     imageLink: snapshot.data!,
                                     listNames: pharmacyNames,
                                     listInfo: Designations,
-                                    index: index);
+                                    index: index,currentStateTitle: 'Pharmacy',);
                               }
                               if (snapshot.connectionState ==
                                       ConnectionState.waiting ||
@@ -251,7 +252,8 @@ class _SearchUIState extends State<SearchUI> {
                                     imageLink: snapshot.data!,
                                     listNames: hospitalNames,
                                     listInfo: Designations,
-                                    index: index);
+                                    index: index,
+                                    currentStateTitle: 'Hospitals',);
                               }
                               if (snapshot.connectionState ==
                                       ConnectionState.waiting ||

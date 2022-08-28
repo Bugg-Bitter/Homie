@@ -61,6 +61,16 @@ class NonImplementedModules extends StatelessWidget {
     );
   }
 }
+  @override
+  Widget snackBaar(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        child: SnackBar(content: Text('Added to Firebase',style: TextStyle(fontSize: 18.0,fontFamily: 'montserrat',),)),
+      ),
+    );
+  }
 
 // Suggested Doctor Numbers [Constant]
 const totalDoctor = 6;
@@ -71,3 +81,12 @@ const totalSignUpTextFields = 5;
 
 String signedInEmail = '';
 String signedInPass = '';
+
+List <String> reportsList = [
+  'repo1.png',
+  'repo2.png',
+  'repo3.png',
+  'repo4.png',
+  'repo5.png',
+  'repo6.png',
+];

@@ -9,7 +9,8 @@ class InfoComponent extends StatelessWidget {
     required this.imageLink,
     required this.listNames,
     required this.listInfo,
-    required this.index,
+    required this.index, 
+    required this.currentStateTitle,
   }) : super(key: key);
 
   final double ScreenHeight;
@@ -17,6 +18,7 @@ class InfoComponent extends StatelessWidget {
   final List<String> listNames;
   final List<String> listInfo;
   final int index;
+  final String currentStateTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +88,7 @@ class InfoComponent extends StatelessWidget {
                                     specialist:degree,
                                     department:departments[index],
                                     tracker: index,
+                                    stateTitle: currentStateTitle,
                                   )));
                     },
                     child: Container(

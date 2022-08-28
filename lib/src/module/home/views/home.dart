@@ -25,6 +25,14 @@ class _HomeUIState extends State<HomeUI> {
   Widget build(BuildContext context) {
     double ScreenHeight = MediaQuery.of(context).size.height;
     double ScreenWidth = MediaQuery.of(context).size.width;
-    return nonImplementedMsg;
+    return Container(
+      width:double.infinity,
+      height: double.infinity,
+      child: Column(
+        children: [
+          
+        ],
+      ),
+    );
   }
 }

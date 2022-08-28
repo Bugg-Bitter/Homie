@@ -13,7 +13,8 @@ class SearchedProfileStart extends StatelessWidget {
     required this.assignedHospital,
     required this.specialist,
     required this.department,
-    required this.tracker,
+    required this.tracker, 
+    required this.stateTitle,
     // required this.phoneNo
   }) : super(key: key);
   final String searchedImage;
@@ -23,6 +24,7 @@ class SearchedProfileStart extends StatelessWidget {
   final String specialist;
   final String department;
   final int tracker;
+  final String stateTitle;
   // final int phoneNo;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,8 @@ class SearchedProfileStart extends StatelessWidget {
         linkedHospital: assignedHospital,
         linkedSpecialist: specialist,
         linkedDepartment: department,
-        linkedTracker: tracker,
+        linkedTracker: tracker, 
+        linkedStateTitle: stateTitle,
       ),
     );
   }
@@ -50,7 +53,8 @@ class SearchedProfileUI extends StatefulWidget {
     required this.linkedHospital,
     required this.linkedSpecialist,
     required this.linkedDepartment,
-    required this.linkedTracker,
+    required this.linkedTracker, 
+    required this.linkedStateTitle,
   }) : super(key: key);
 
   final String linkedImage;
@@ -60,6 +64,7 @@ class SearchedProfileUI extends StatefulWidget {
   final String linkedSpecialist;
   final String linkedDepartment;
   final int linkedTracker;
+  final String linkedStateTitle;
   @override
   State<SearchedProfileUI> createState() => _SearchedProfileUIState();
 }
@@ -220,7 +225,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
           ),
         ),
         title: Text(
-          'Doctors Profile',
+          '${widget.linkedStateTitle} Profile',
           style: TextStyle(
               fontWeight: FontWeight.w600, fontSize: 16.0, color: Colors.black),
         ),
@@ -297,7 +302,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Doctors Information',
+                            '${widget.linkedStateTitle} Information',
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w600,
