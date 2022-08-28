@@ -88,5 +88,23 @@ List <String> reportsList = [
   'repo3.png',
   'repo4.png',
   'repo5.png',
-  'repo6.png',
+  'repo4.png',
+];
+
+List <String> cardTitles = [
+  'Monkeypox Treatment Options:',
+  'Unplug and Let Your Mind Wander',
+  'People Respond Differently Drugs',
+  'Ultra-Processed Foods Can Affect !',
+  'Study shows that genetic variations :',
+  'Ultra-Processed Foods Can Affect !',
+];
+
+List <String> imgLocation = [
+  'asset/homepage/airticle1.png',
+  'asset/homepage/airticle2.png',
+  'asset/homepage/airticle3.png',
+  'asset/homepage/airticle4.png',
+  'asset/homepage/airticle5.png',
+  'asset/homepage/airticle4.png',
 ];

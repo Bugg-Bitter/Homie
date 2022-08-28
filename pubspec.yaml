@@ -84,6 +84,11 @@ flutter:
     - asset/resetpage/resetBanner.svg
     - asset/medicalreportpage/reportBanner.svg
     - asset/dailyReport/emoji.png
+    - asset/homepage/airticle1.png
+    - asset/homepage/airticle2.png
+    - asset/homepage/airticle3.png
+    - asset/homepage/airticle4.png
+    - asset/homepage/airticle5.png
 
   fonts:
     - family: montserrat
