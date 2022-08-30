@@ -13,23 +13,23 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/bugg/Desktop/sample/homie/android/app/src/debug/AndroidManifest.xml:7:5-66
-15-->/Users/bugg/Desktop/sample/homie/android/app/src/debug/AndroidManifest.xml:7:22-64
+15-->/Users/bugg/Desktop/homie/android/app/src/debug/AndroidManifest.xml:7:5-66
+15-->/Users/bugg/Desktop/homie/android/app/src/debug/AndroidManifest.xml:7:22-64
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-16-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-80
-16-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-77
+16-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-80
+16-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-77
 17
 18    <queries>
-18-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:15
+18-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:15
 19        <intent>
-19-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:18
+19-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:18
 20            <action android:name="android.intent.action.GET_CONTENT" />
-20-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-72
-20-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:21-69
+20-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-72
+20-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:13:21-69
 21
 22            <data android:mimeType="*/*" />
-22-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
-22-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:19-41
+22-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+22-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:19-41
 23        </intent>
 24        <!-- Needs to be explicitly declared on Android R+ -->
 25        <package android:name="com.google.android.apps.maps" />
@@ -38,15 +38,15 @@
 26    </queries>
 27
 28    <uses-permission android:name="android.permission.CALL_PHONE" />
-28-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-69
-28-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-66
+28-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-69
+28-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-66
 29
 30    <uses-feature
-30-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:36
+30-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:36
 31        android:name="android.hardware.telephony"
-31-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-50
+31-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-50
 32        android:required="false" />
-32-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-33
+32-->[:flutter_phone_direct_caller] /Users/bugg/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-33
 33
 34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 34-->[com.google.firebase:firebase-auth:21.0.7] /Users/bugg/.gradle/caches/transforms-3/6b415a3bc2b441250bf51af87084b635/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:24:5-79
@@ -107,37 +107,37 @@
 84            android:value="2" />
 85
 86        <service
-86-->[:firebase_auth] /Users/bugg/Desktop/sample/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+86-->[:firebase_auth] /Users/bugg/Desktop/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
 87            android:name="com.google.firebase.components.ComponentDiscoveryService"
-87-->[:firebase_auth] /Users/bugg/Desktop/sample/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+87-->[:firebase_auth] /Users/bugg/Desktop/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
 88            android:directBootAware="true"
 88-->[com.google.firebase:firebase-common:20.1.1] /Users/bugg/.gradle/caches/transforms-3/fccaa6a289edc53f66333a729d5bb147/transformed/jetified-firebase-common-20.1.1/AndroidManifest.xml:35:13-43
 89            android:exported="false" >
 89-->[com.google.firebase:firebase-auth:21.0.7] /Users/bugg/.gradle/caches/transforms-3/6b415a3bc2b441250bf51af87084b635/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:66:13-37
 90            <meta-data
-90-->[:firebase_auth] /Users/bugg/Desktop/sample/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+90-->[:firebase_auth] /Users/bugg/Desktop/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 91                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-91-->[:firebase_auth] /Users/bugg/Desktop/sample/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+91-->[:firebase_auth] /Users/bugg/Desktop/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 92                android:value="com.google.firebase.components.ComponentRegistrar" />
-92-->[:firebase_auth] /Users/bugg/Desktop/sample/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+92-->[:firebase_auth] /Users/bugg/Desktop/homie/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 93            <meta-data
-93-->[:firebase_storage] /Users/bugg/Desktop/sample/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+93-->[:firebase_storage] /Users/bugg/Desktop/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 94                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
-94-->[:firebase_storage] /Users/bugg/Desktop/sample/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-126
+94-->[:firebase_storage] /Users/bugg/Desktop/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-126
 95                android:value="com.google.firebase.components.ComponentRegistrar" />
-95-->[:firebase_storage] /Users/bugg/Desktop/sample/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+95-->[:firebase_storage] /Users/bugg/Desktop/homie/build/firebase_storage/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 96            <meta-data
-96-->[:cloud_firestore] /Users/bugg/Desktop/sample/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+96-->[:cloud_firestore] /Users/bugg/Desktop/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 97                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-97-->[:cloud_firestore] /Users/bugg/Desktop/sample/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
+97-->[:cloud_firestore] /Users/bugg/Desktop/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
 98                android:value="com.google.firebase.components.ComponentRegistrar" />
-98-->[:cloud_firestore] /Users/bugg/Desktop/sample/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+98-->[:cloud_firestore] /Users/bugg/Desktop/homie/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 99            <meta-data
-99-->[:firebase_core] /Users/bugg/Desktop/sample/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+99-->[:firebase_core] /Users/bugg/Desktop/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
 100                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-100-->[:firebase_core] /Users/bugg/Desktop/sample/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+100-->[:firebase_core] /Users/bugg/Desktop/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 101                android:value="com.google.firebase.components.ComponentRegistrar" />
-101-->[:firebase_core] /Users/bugg/Desktop/sample/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+101-->[:firebase_core] /Users/bugg/Desktop/homie/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 102            <meta-data
 102-->[com.google.firebase:firebase-auth:21.0.7] /Users/bugg/.gradle/caches/transforms-3/6b415a3bc2b441250bf51af87084b635/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:67:13-69:85
 103                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
@@ -159,31 +159,31 @@
 111        </service>
 112
 113        <provider
-113-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
+113-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-18:20
 114            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-114-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
+114-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
 115            android:authorities="com.example.homie.flutter.image_provider"
-115-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
+115-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-74
 116            android:exported="false"
-116-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+116-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
 117            android:grantUriPermissions="true" >
-117-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
+117-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-47
 118            <meta-data
-118-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
+118-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-17:75
 119                android:name="android.support.FILE_PROVIDER_PATHS"
-119-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
+119-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:17-67
 120                android:resource="@xml/flutter_image_picker_file_paths" />
-120-->[:image_picker_android] /Users/bugg/Desktop/sample/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
+120-->[:image_picker_android] /Users/bugg/Desktop/homie/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:17:17-72
 121        </provider>
 122
 123        <activity
-123-->[:url_launcher_android] /Users/bugg/Desktop/sample/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+123-->[:url_launcher_android] /Users/bugg/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
 124            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-124-->[:url_launcher_android] /Users/bugg/Desktop/sample/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+124-->[:url_launcher_android] /Users/bugg/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
 125            android:exported="false"
-125-->[:url_launcher_android] /Users/bugg/Desktop/sample/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+125-->[:url_launcher_android] /Users/bugg/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
 126            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-126-->[:url_launcher_android] /Users/bugg/Desktop/sample/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+126-->[:url_launcher_android] /Users/bugg/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
 127
 128        <uses-library
 128-->[androidx.window:window:1.0.0-beta04] /Users/bugg/.gradle/caches/transforms-3/542a859793ec57d6a4d40865c7efc6d9/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
@@ -224,7 +224,7 @@
 145-->[com.google.firebase:firebase-auth:21.0.7] /Users/bugg/.gradle/caches/transforms-3/6b415a3bc2b441250bf51af87084b635/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:27-75
 146
 147                <data
-147-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+147-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
 148                    android:host="firebase.auth"
 149                    android:path="/"
 150                    android:scheme="genericidp" />
@@ -256,7 +256,7 @@
 163-->[com.google.firebase:firebase-auth:21.0.7] /Users/bugg/.gradle/caches/transforms-3/6b415a3bc2b441250bf51af87084b635/transformed/jetified-firebase-auth-21.0.7/AndroidManifest.xml:37:27-75
 164
 165                <data
-165-->[:file_picker] /Users/bugg/Desktop/sample/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+165-->[:file_picker] /Users/bugg/Desktop/homie/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
 166                    android:host="firebase.auth"
 167                    android:path="/"
 168                    android:scheme="recaptcha" />

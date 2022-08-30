@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/bugg/Desktop/sample/homie/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/bugg/Desktop/homie/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
+                {
+                    "source": "/Users/bugg/Desktop/homie/android/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,818",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "476,982"
+                    },
+                    "to": {
+                        "startLines": "138,143",
+                        "startColumns": "4,4",
+                        "startOffsets": "10028,10336",
+                        "endLines": "142,145",
+                        "endColumns": "12,12",
+                        "endOffsets": "10331,10500"
+                    }
+                },
                 {
                     "source": "/Users/bugg/.gradle/caches/transforms-3/95f836bc5966badd1250ea9af0d4d03d/transformed/jetified-play-services-maps-18.0.2/res/values/values.xml",
                     "from": {
@@ -112,22 +131,20 @@
                     }
                 },
                 {
-                    "source": "/Users/bugg/Desktop/sample/homie/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/bugg/Desktop/homie/build/app/generated/res/google-services/debug/values/values.xml",
                     "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,818",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "476,982"
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,709",
+                        "endColumns": "143,81,103,108,119,94,71",
+                        "endOffsets": "194,276,380,489,609,704,776"
                     },
                     "to": {
-                        "startLines": "138,143",
-                        "startColumns": "4,4",
-                        "startOffsets": "10028,10336",
-                        "endLines": "142,145",
-                        "endColumns": "12,12",
-                        "endOffsets": "10331,10500"
+                        "startLines": "127,131,132,133,134,135,136",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "9016,9375,9457,9561,9670,9790,9885",
+                        "endColumns": "143,81,103,108,119,94,71",
+                        "endOffsets": "9155,9452,9556,9665,9785,9880,9952"
                     }
                 },
                 {
@@ -147,23 +164,6 @@
                         "endLines": "2,11,12,25,26,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,107,137,146,150,151,155,156,157,158,176,186,219,240,273,279",
                         "endColumns": "59,71,87,68,62,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,57,60,62,56,50,49,60,56,65,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24,24",
                         "endOffsets": "160,568,656,1645,1708,1921,1989,2061,2131,2192,2266,2339,2400,2461,2523,2587,2649,2710,2778,2878,2938,3004,3077,3146,3203,3255,3317,3389,3465,3530,3589,3648,3708,3768,3828,3888,3948,4008,4068,4128,4188,4248,4307,4367,4427,4487,4547,4607,4667,4727,4787,4847,4907,4966,5026,5086,5145,5204,5263,5322,5381,5440,5535,5570,5625,5688,5743,5801,5859,5920,5983,6040,6091,6141,6202,6259,6325,6359,6394,6429,6610,10023,10617,10818,10928,11129,11258,11330,11397,12215,12516,14247,14928,15610,15777"
-                    }
-                },
-                {
-                    "source": "/Users/bugg/Desktop/sample/homie/build/app/generated/res/google-services/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,709",
-                        "endColumns": "143,81,103,108,119,94,71",
-                        "endOffsets": "194,276,380,489,609,704,776"
-                    },
-                    "to": {
-                        "startLines": "127,131,132,133,134,135,136",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "9016,9375,9457,9561,9670,9790,9885",
-                        "endColumns": "143,81,103,108,119,94,71",
-                        "endOffsets": "9155,9452,9556,9665,9785,9880,9952"
                     }
                 }
             ]

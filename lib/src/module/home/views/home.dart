@@ -143,7 +143,7 @@ class _HomeUIState extends State<HomeUI> {
                     ),
                     Expanded(
                       child: ListView.builder(
-                          itemCount: reportsList.length,
+                          itemCount: cardTitles.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: EdgeInsets.only(
@@ -162,6 +162,7 @@ class _HomeUIState extends State<HomeUI> {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         ClipRRect(
                                             borderRadius:
@@ -169,33 +170,30 @@ class _HomeUIState extends State<HomeUI> {
                                             child: Padding(
                                               padding: EdgeInsets.only(left: 8.0),
                                               child: SizedBox(
-                                                  height: ScreenHeight / 10.0,
-                                                  width: ScreenHeight / 10.0,
+                                                  height: ScreenHeight / 5.0,
+                                                  width: ScreenWidth / 5.0,
                                                   child: Image.asset(
                                                       '${imgLocation[index]}')),
                                             )),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 13.0),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "${cardTitles[index]}",
-                                                style: TextStyle(
-                                                  fontFamily: 'montserrat',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "${cardTitles[index]}",
+                                              style: TextStyle(
+                                                fontFamily: 'montserrat',
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 10.0),
-                                                child: Text(
-                                                    "Health experts working globally to lessen the outbreak\n of monkeypox as the WHO has recently declared…"),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 10.0),
+                                              child: Text(
+                                                  subtitle),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -235,6 +233,7 @@ class _HomeUIState extends State<HomeUI> {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         ClipRRect(
                                             borderRadius:
@@ -242,33 +241,30 @@ class _HomeUIState extends State<HomeUI> {
                                             child: Padding(
                                               padding: EdgeInsets.only(left: 8.0),
                                               child: SizedBox(
-                                                  height: ScreenHeight / 10.0,
-                                                  width: ScreenHeight / 10.0,
+                                                  height: ScreenHeight / 5.0,
+                                                  width: ScreenWidth / 5.0,
                                                   child: Image.asset(
                                                       '${imgLocation[index]}')),
                                             )),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 13.0),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "${cardTitles[index]}",
-                                                style: TextStyle(
-                                                  fontFamily: 'montserrat',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "${cardTitles[index]}",
+                                              style: TextStyle(
+                                                fontFamily: 'montserrat',
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
-                                              Padding(
-                                                padding:
-                                                    EdgeInsets.only(top: 10.0),
-                                                child: Text(
-                                                    "Health experts working globally to lessen the outbreak\n of monkeypox as the WHO has recently declared…"),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 10.0),
+                                              child: Text(
+                                                  subtitle),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),

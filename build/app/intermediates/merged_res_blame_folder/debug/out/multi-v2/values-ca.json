@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/bugg/Desktop/sample/homie/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
+            "outputFile": "/Users/bugg/Desktop/homie/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml",
             "map": [
                 {
                     "source": "/Users/bugg/.gradle/caches/transforms-3/19a0dfd4021b70333b258b23187eb758/transformed/jetified-play-services-basement-18.0.0/res/values-ca/values.xml",

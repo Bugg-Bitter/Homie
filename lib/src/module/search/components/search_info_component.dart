@@ -64,7 +64,7 @@ class InfoComponent extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(
+                      currentStateTitle == 'Doctor' ?  Padding(
                         padding: EdgeInsets.only(top: 8.0),
                         child: Text(
                           textAlign: TextAlign.left,
@@ -72,7 +72,7 @@ class InfoComponent extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w700),
                         ),
-                      ),
+                      ): Container(),
                     ],
                   ),
                   InkWell(

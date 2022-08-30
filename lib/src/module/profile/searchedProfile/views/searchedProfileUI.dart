@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:homie/src/module/profile/config/searchedProfileConfig.dart';
 import 'package:homie/src/module/search/config/search_config.dart';
 import 'package:homie/src/module/search/views/search_UI.dart';
 
@@ -139,7 +140,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                     top: 20.0, bottom: 20.0),
-                                child: Text('Appointment: +8801787681500',
+                                child: Text('Appointment: ${phoneNoList[widget.linkedTracker]}',
                                     textAlign: TextAlign.center),
                               ),
                             ],
@@ -164,7 +165,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                                   child: InkWell(
                                     onTap: () async {
                                       await FlutterPhoneDirectCaller.callNumber(
-                                          phoneNo);
+                                          phoneNoList[widget.linkedTracker]);
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.all(15.0),
@@ -178,7 +179,8 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                                       ),
                                     ),
                                   ),
-                                )),
+                                ),
+                                ),
                           ],
                         ));
               },

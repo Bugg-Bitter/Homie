@@ -248,6 +248,7 @@ class _SearchUIState extends State<SearchUI> {
                                       ConnectionState.done &&
                                   snapshot.hasData) {
                                 return InfoComponent(
+                                    
                                     ScreenHeight: ScreenHeight,
                                     imageLink: snapshot.data!,
                                     listNames: hospitalNames,

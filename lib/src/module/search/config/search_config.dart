@@ -3,7 +3,7 @@ import 'package:homie/src/firebase/storage_service.dart';
 final Storage storage = Storage();
 var flagOfmodules = 1;
 var searchResult = 'Doctors';
-final String phoneNo = '16263';
+// final String phoneNo = '16263';
 var degree = 'MBBS (DMC)DCH (IRE) MRCP (UK)MRCPCH(UK)FRCP(Glassgow)';
 var addressList = '';
 

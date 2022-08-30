@@ -92,12 +92,12 @@ List <String> reportsList = [
 ];
 
 List <String> cardTitles = [
-  'Monkeypox Treatment Options:',
-  'Unplug and Let Your Mind Wander',
-  'People Respond Differently Drugs',
-  'Ultra-Processed Foods Can Affect !',
-  'Study shows that genetic variations :',
-  'Ultra-Processed Foods Can Affect !',
+  'Monkeypox Treatment',
+  'Unplug and Mind Wander',
+  'People Respond Drugs',
+  'Foods Can Affect !',
+  'Genetic variations',
+  'Foods Can Affect !',
 ];
 
 List <String> imgLocation = [
@@ -108,3 +108,5 @@ List <String> imgLocation = [
   'asset/homepage/airticle5.png',
   'asset/homepage/airticle4.png',
 ];
+
+String subtitle = "Health experts working globally\n to lessen the outbreak of monkeypox\n as the WHO has recently declared…";
