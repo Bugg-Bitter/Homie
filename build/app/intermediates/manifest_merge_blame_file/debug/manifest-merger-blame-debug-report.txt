@@ -65,7 +65,7 @@
 42-->[androidx.core:core:1.8.0] /Users/bugg/.gradle/caches/transforms-3/0ce731f8c62e88af9af421907435d7da/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
 43        android:debuggable="true"
 44        android:icon="@mipmap/ic_launcher"
-45        android:label="homie" >
+45        android:label="HoMie" >
 46        <meta-data
 47            android:name="com.google.android.geo.API_KEY"
 48            android:value="AIzaSyCE70PGR4gUHjDgU4j3Zb24jZ1HAKdckBA" />

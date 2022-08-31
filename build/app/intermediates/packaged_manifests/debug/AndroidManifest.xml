@@ -42,7 +42,7 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="homie" >
+        android:label="HoMie" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCE70PGR4gUHjDgU4j3Zb24jZ1HAKdckBA" />

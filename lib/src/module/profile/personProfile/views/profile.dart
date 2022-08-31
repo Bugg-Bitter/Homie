@@ -118,40 +118,40 @@ class _ProfileUIState extends State<ProfileUI> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: 13.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: FutureBuilder(
-                                  future: storage.userProfilePicDownloadURL(
-                                      '${loggedInUserMail}'),
-                                  builder: (BuildContext context,
-                                      AsyncSnapshot<String> snapshot) {
-                                    if (snapshot.connectionState ==
-                                            ConnectionState.done &&
-                                        snapshot.hasData) {
-                                      return Image.network(
+                            child: FutureBuilder(
+                                future: storage.userProfilePicDownloadURL(
+                                    '${loggedInUserMail}'),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<String> snapshot) {
+                                  if (snapshot.connectionState ==
+                                          ConnectionState.done &&
+                                      snapshot.hasData) {
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      child: Image.network(
                                         snapshot.data!,
-                                        height: 80.0,
-                                        width: 80.0,
-                                      );
-                                    }
-                                    if (snapshot.connectionState ==
-                                            ConnectionState.waiting ||
-                                        !snapshot.hasData) {
-                                      return Center(
-                                          child: Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 8.0, right: 8.0),
-                                        child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            child: CircularProgressIndicator()),
-                                      ));
-                                    } else {
-                                      return Container();
-                                    }
-                                  }),
-                              // loadimagefromFirebase
-                            ),
+                                        height: ScreenHeight / 12.0,
+                                        width: ScreenWidth / 7.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  }
+                                  if (snapshot.connectionState ==
+                                          ConnectionState.waiting ||
+                                      !snapshot.hasData) {
+                                    return Center(
+                                        child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 8.0, right: 8.0),
+                                      child: Container(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator()),
+                                    ));
+                                  } else {
+                                    return Container();
+                                  }
+                                }),
                           ),
                           FutureBuilder<User?>(
                             future: readUserInfo(),
