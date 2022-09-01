@@ -74,9 +74,7 @@ class _HomeUIState extends State<HomeUI> {
               ],
             ),
           ),
-          body:
-           
-          TabBarView(
+          body: TabBarView(
             children: [
               Container(
                 width: double.infinity,
@@ -152,7 +150,7 @@ class _HomeUIState extends State<HomeUI> {
                                 height: ScreenHeight / 8.0,
                                 width: double.infinity,
                                 child: InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     launchUrlString('https://www.who.int');
                                   },
                                   child: Card(
@@ -162,18 +160,17 @@ class _HomeUIState extends State<HomeUI> {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(left: 8.0),
-                                              child: SizedBox(
-                                                  height: ScreenHeight / 5.0,
-                                                  width: ScreenWidth / 5.0,
-                                                  child: Image.asset(
-                                                      '${imgLocation[index]}')),
+                                            child: Image.asset(
+                                              '${imgLocation[index]}',
+                                              fit: BoxFit.fill,
+                                              height: ScreenHeight / 10.0,
+                                              width: ScreenWidth / 5.0,
                                             )),
                                         Column(
                                           mainAxisAlignment:
@@ -190,8 +187,7 @@ class _HomeUIState extends State<HomeUI> {
                                             Padding(
                                               padding:
                                                   EdgeInsets.only(top: 10.0),
-                                              child: Text(
-                                                  subtitle),
+                                              child: Text(subtitle),
                                             ),
                                           ],
                                         ),
@@ -211,7 +207,6 @@ class _HomeUIState extends State<HomeUI> {
                 height: double.infinity,
                 child: Column(
                   children: [
-
                     Expanded(
                       child: ListView.builder(
                           itemCount: cardTitles.length,
@@ -223,7 +218,7 @@ class _HomeUIState extends State<HomeUI> {
                                 height: ScreenHeight / 8.0,
                                 width: double.infinity,
                                 child: InkWell(
-                                  onTap: (){
+                                  onTap: () {
                                     launchUrlString('https://www.who.int');
                                   },
                                   child: Card(
@@ -233,18 +228,17 @@ class _HomeUIState extends State<HomeUI> {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
-                                            child: Padding(
-                                              padding: EdgeInsets.only(left: 8.0),
-                                              child: SizedBox(
-                                                  height: ScreenHeight / 5.0,
-                                                  width: ScreenWidth / 5.0,
-                                                  child: Image.asset(
-                                                      '${imgLocation[index]}')),
+                                            child: Image.asset(
+                                              '${imgLocation[index]}',
+                                              fit: BoxFit.fill,
+                                              height: ScreenHeight / 10.0,
+                                              width: ScreenWidth / 5.0,
                                             )),
                                         Column(
                                           mainAxisAlignment:
@@ -261,8 +255,7 @@ class _HomeUIState extends State<HomeUI> {
                                             Padding(
                                               padding:
                                                   EdgeInsets.only(top: 10.0),
-                                              child: Text(
-                                                  subtitle),
+                                              child: Text(subtitle),
                                             ),
                                           ],
                                         ),

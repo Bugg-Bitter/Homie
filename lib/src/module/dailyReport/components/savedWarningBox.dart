@@ -1,23 +1,41 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:homie/src/config/config.dart';
+import 'package:intl/intl.dart';
 
-class SavedWarningBox extends StatelessWidget {
+class SavedWarningBox extends StatefulWidget {
+
   const SavedWarningBox({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<SavedWarningBox> createState() => _SavedWarningBoxState();
+}
+
+class _SavedWarningBoxState extends State<SavedWarningBox> {
+  @override
+  void initState() {
+    super.initState();
+    // String date = DateFormat('yMd').format(now);
+    // DateFormat time = DateFormat.jm();
+    // String dateAndTime = DateFormat('yyyy-MM-dd KK:mm:ss').format(DateTime.now());
+    // print(dateAndTime);
+  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        pulseRateController.clear();
-        BPController.clear();
-        O2Controller.clear();
-        tempInController.clear();
-        diabetiesBeforeController.clear();
-        diabetiesAfterController.clear();
-        weatherController.clear();
-        weightController.clear();
-        extraNotesController.clear();
+        // print(pulseRateController.text);
+        // print(BPController.text);
+        // print(O2Controller.text);
+        // print(tempInController.text);
+        // print(diabetiesBeforeController.text);
+        // print(diabetiesAfterController.text);
+        // print(weatherController.text);
+        // print(weightController.text);
+        // print(DateTime.now());
+
         if (pulseRatefromKey.currentState!.validate()) {
           if (BPfromKey.currentState!.validate()) {
             if (O2fromKey.currentState!.validate()) {
@@ -27,6 +45,41 @@ class SavedWarningBox extends StatelessWidget {
                     if (weightfromKey.currentState!.validate()) {
                       if (weatherformKey.currentState!.validate()) {
                         if (extraNotesfromKey.currentState!.validate()) {
+                          final fullPulseRate = pulseRateController.text;
+                          final fullBP = BPController.text;
+                          final fullO2 = O2Controller.text;
+                          final fullTempIn = tempInController.text;
+                          final fullDiabetiesBefore =
+                              diabetiesBeforeController.text;
+                          final fullDiabetiesAfter =
+                              diabetiesAfterController.text;
+                          final fullWeather = weatherController.text;
+                          final fullWeight = weightController.text;
+                          final fullExtraNotes = extraNotesController.text;
+                          final fullIntercourse = intercourseController;
+
+                          createNewReport(
+                            newPulseRate: fullPulseRate,
+                            newBP: fullBP,
+                            newO2: fullO2,
+                            newTempIn: fullTempIn,
+                            newDiabetiesBefore: fullDiabetiesBefore,
+                            newDiabetiesAfter: fullDiabetiesAfter,
+                            newWeather: fullWeather,
+                            newWeight: fullWeight,
+                            newExtraNotes: fullExtraNotes,
+                            newIntercourse: fullIntercourse,
+                          );
+                          print("${dateAndTime}");
+                          pulseRateController.clear();
+                          BPController.clear();
+                          O2Controller.clear();
+                          tempInController.clear();
+                          diabetiesBeforeController.clear();
+                          diabetiesAfterController.clear();
+                          weatherController.clear();
+                          weightController.clear();
+                          extraNotesController.clear();
                           showDialog(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
@@ -85,5 +138,36 @@ class SavedWarningBox extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future createNewReport(
+      {
+      required String newPulseRate,
+      required String newBP,
+      required String newO2,
+      required String newTempIn,
+      required String newDiabetiesBefore,
+      required String newDiabetiesAfter,
+      required String newWeather,
+      required String newWeight,
+      required String newExtraNotes,
+      required String newIntercourse
+      }
+      ) async {
+
+    final newDailyReport = FirebaseFirestore.instance.collection('dailyReports').doc(DateFormat('yyyy-MM-dd KK:mm:ss').format(DateTime.now()));
+    final jsonData = {
+      'pulse': newPulseRate,
+      'bp': newBP,
+      'o2': newO2,
+      'temp': newTempIn,
+      'diabetics': newDiabetiesBefore,
+      'weather': newWeather,
+      'weight':newWeight,
+      'extranotes':newExtraNotes,
+      'intercourse':newIntercourse,
+    };
+    await newDailyReport.set(jsonData);
+    print('Successfully inserted');
   }
 }

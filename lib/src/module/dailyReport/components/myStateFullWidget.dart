@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homie/src/config/config.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
@@ -45,6 +46,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         onChanged: (String? newValue) {
           setState(() {
             dropdownValue = newValue!;
+            intercourseController = dropdownValue;
           });
         },
         items:

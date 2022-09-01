@@ -398,4 +398,5 @@ Future createNewUser(
   };
 
   await newPersonInfo.set(jsonData);
+
 }

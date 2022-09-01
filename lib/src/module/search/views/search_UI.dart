@@ -60,7 +60,7 @@ class _SearchUIState extends State<SearchUI> {
                             ),
                             filled: true,
                             hintStyle: TextStyle(color: Colors.grey[800]),
-                            hintText: " Search Doctor",
+                            hintText: " Search",
                             fillColor: Colors.white),
                       ),
                     ),

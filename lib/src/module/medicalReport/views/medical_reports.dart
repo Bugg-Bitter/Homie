@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homie/src/config/config.dart';
+import 'package:homie/src/module/medicalReport/views/report_views.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../profile/updateProfile/config/firebaseApi.dart';
 import '../../search/config/search_config.dart';
@@ -18,18 +18,22 @@ class Medical_Reports extends StatefulWidget {
 }
 
 class _Medical_ReportsState extends State<Medical_Reports> {
+  var incOfList = 6;
+  var kflag = false;
   File? image;
+
   Future uploadReportPic() async {
     if (image == null) {
       return;
     }
     // SharedPreferences prefs = await SharedPreferences.getInstance();
-    final filename = 'repo6';
+    final filename = DateTime.now();
     final destination = 'medicalReports/$filename';
     FirebaseApi.uploadFile(destination, image!);
   }
 
   Future _chooseImage() async {
+    kflag = true;
     try {
       XFile? image = await ImagePicker().pickImage(
         source: ImageSource.gallery,
@@ -44,8 +48,14 @@ class _Medical_ReportsState extends State<Medical_Reports> {
 
   @override
   Widget build(BuildContext context) {
-    double ScreenHeight = MediaQuery.of(context).size.height;
-    double ScreenWidth = MediaQuery.of(context).size.width;
+    double ScreenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+    double ScreenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     final reportAddedToast = SnackBar(
       duration: Duration(milliseconds: 1500),
       content: Text(
@@ -97,78 +107,99 @@ class _Medical_ReportsState extends State<Medical_Reports> {
                 Expanded(
                   child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisSpacing: 20.0,
+                          mainAxisSpacing: 20.0,
                           crossAxisCount: 3),
-                      itemCount: reportsList.length,
+                      itemCount: incOfList,
                       itemBuilder: (context, index) {
                         final item = reportsList[index];
                         return FutureBuilder(
                             future:
-                                storage.medicalReportsDownloadURL('${item}'),
+                            storage.medicalReportsDownloadURL('${item}'),
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               if (snapshot.connectionState ==
-                                      ConnectionState.done &&
+                                  ConnectionState.done &&
                                   snapshot.hasData) {
-                                return ClipRRect(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  child: Image.network(
-                                    snapshot.data!,
-                                    height: 80.0,
-                                    width: 80.0,
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                reportView(
+                                                    image: snapshot.data!)));
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    child: Hero(
+                                      tag: 'report_view',
+                                      child: Image.network(
+                                        snapshot.data!,
+                                        height: 80.0,
+                                        width: 80.0,
+                                      ),
+                                    ),
                                   ),
                                 );
                               }
                               if (snapshot.connectionState ==
-                                      ConnectionState.waiting ||
+                                  ConnectionState.waiting ||
                                   !snapshot.hasData) {
                                 return Center(
                                     child: Padding(
-                                  padding:
+                                      padding:
                                       EdgeInsets.only(left: 8.0, right: 8.0),
-                                  child: Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      GestureDetector(
-                                          onTap: () {
-                                            _chooseImage();
-                                          },
-                                          child: image != null
-                                              ? ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.file(
-                                                    image!,
-                                                    height: 100.0,
-                                                    width: 105.0,
-                                                  ),
-                                                )
-                                              : ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'asset/updatepage/black.png',
-                                                    height: 100.0,
-                                                    width: 105.0,
-                                                  ),
-                                                )),
-                                      image == null
-                                          ? GestureDetector(
-                                              onTap: () {
-                                                _chooseImage();
-                                              },
-                                              child: SvgPicture.asset(
-                                                'asset/updatepage/plus.svg',
-                                                color: Colors.white,
+                                      child: Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              _chooseImage();
+                                              // setState(() {
+                                              //   ++incOfList;
+                                              // });
+                                            },
+                                            child: image != null
+                                                ? ClipRRect(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  8.0),
+                                              child: Image.file(
+                                                image!,
                                                 height: 100.0,
                                                 width: 105.0,
                                               ),
                                             )
-                                          : Container(),
-                                    ],
-                                  ),
-                                ));
+                                                : ClipRRect(
+                                              borderRadius:
+                                              BorderRadius.circular(
+                                                  8.0),
+                                              child: Image.asset(
+                                                'asset/updatepage/black.png',
+                                                height: 100.0,
+                                                width: 105.0,
+                                              ),
+                                            ),),
+                                          image == null
+                                              ? GestureDetector(
+                                            onTap: () {
+                                              _chooseImage();
+                                              // setState(() {
+                                              //   ++incOfList;
+                                              // });
+                                            },
+                                            child: SvgPicture.asset(
+                                              'asset/updatepage/plus.svg',
+                                              color: Colors.white,
+                                              height: 100.0,
+                                              width: 105.0,
+                                            ),
+                                          )
+                                              : Container(),
+                                        ],
+                                      ),
+                                    ));
                               } else {
                                 return Container();
                               }
@@ -189,14 +220,15 @@ class _Medical_ReportsState extends State<Medical_Reports> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {
-                  if(image == null){
-                    ScaffoldMessenger.of(context).showSnackBar(reportNotAddedToast);
-                  }else if(image != null){
-                    ScaffoldMessenger.of(context).showSnackBar(reportAddedToast);
+                  if (image == null) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(reportNotAddedToast);
+                  } else if (image != null) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(reportAddedToast);
                   }
-                  
                 },
-                onLongPress: (){
+                onLongPress: () {
                   uploadReportPic();
                 },
                 child: Text(
@@ -208,7 +240,7 @@ class _Medical_ReportsState extends State<Medical_Reports> {
                 ),
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Color(0xFF0B63F6)),
+                  MaterialStateProperty.all<Color>(Color(0xFF0B63F6)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
@@ -222,4 +254,5 @@ class _Medical_ReportsState extends State<Medical_Reports> {
       ),
     );
   }
+
 }

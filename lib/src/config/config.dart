@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
+DateTime now = DateTime.now();
+String date = DateFormat('yMd').format(now);
+DateFormat time = DateFormat.jm();
+DateFormat dateAndTime = DateFormat.yMd().add_jm();
 
 // Global update tracker
 int updateInfoTracker = 0;
@@ -30,6 +34,8 @@ final diabetiesAfterController = TextEditingController();
 final weatherController = TextEditingController();
 final weightController = TextEditingController();
 final extraNotesController = TextEditingController();
+var intercourseController = '';
+var excerciseController = '';
 
 
 // Unimplemnted Modules Message
@@ -88,7 +94,13 @@ List <String> reportsList = [
   'repo3.png',
   'repo4.png',
   'repo5.png',
-  'repo4.png',
+  'repo6.png',
+  'repo7.png',
+  'repo8.png',
+  'repo9.png',
+  'repo10.png',
+  'repo11.png',
+  'repo12.png',
 ];
 
 List <String> cardTitles = [
