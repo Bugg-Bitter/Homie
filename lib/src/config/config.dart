@@ -109,7 +109,6 @@ List <String> cardTitles = [
   'People Respond Drugs',
   'Foods Can Affect !',
   'Genetic variations',
-  'Foods Can Affect !',
 ];
 
 List <String> imgLocation = [
@@ -118,7 +117,8 @@ List <String> imgLocation = [
   'asset/homepage/airticle3.png',
   'asset/homepage/airticle4.png',
   'asset/homepage/airticle5.png',
-  'asset/homepage/airticle4.png',
 ];
 
 String subtitle = "Health experts working globally\n to lessen the outbreak of monkeypox\n as the WHO has recently declared…";
+
+// List list

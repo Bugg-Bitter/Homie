@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:homie/src/module/dailyReport/views/dailyReport.dart';
 import 'package:homie/src/module/home/views/home.dart';
 import 'package:homie/src/module/profile/personProfile/views/profile.dart';
 import 'package:homie/src/module/search/views/search_UI.dart';
+
+import '../../dailyReport/updatePage/view/dailyReport.dart';
 
 class NavigationStart extends StatelessWidget {
   const NavigationStart({Key? key}) : super(key: key);

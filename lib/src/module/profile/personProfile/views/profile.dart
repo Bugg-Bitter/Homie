@@ -7,6 +7,7 @@ import 'package:homie/src/module/profile/updateProfile/views/updateProfileUI.dar
 import 'package:homie/src/module/search/config/search_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../dailyReport/viewPage/view/viewPage.dart';
 import '../../../medicalReport/views/medical_reports.dart';
 
 class ProfileStart extends StatelessWidget {
@@ -266,41 +267,46 @@ class _ProfileUIState extends State<ProfileUI> {
                       right: 40.0,
                       top: 20.0,
                     ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.white,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.book_rounded,
-                                color: Color(0xFF1648CE),
-                              ),
-                              Text(
-                                'Daily Reports',
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontFamily: 'montserrat',
-                                    fontWeight: FontWeight.w800),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 8.0),
-                            child: Text(
-                              'Check Your Medical History',
-                              style: TextStyle(
-                                  fontFamily: 'montserrat', fontSize: 10.0),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ViewPageDataStart()));
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.white,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.book_rounded,
+                                  color: Color(0xFF1648CE),
+                                ),
+                                Text(
+                                  'Daily Reports',
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontFamily: 'montserrat',
+                                      fontWeight: FontWeight.w800),
+                                ),
+                              ],
                             ),
-                          )
-                        ],
+                            Padding(
+                              padding: EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                'Check Your Medical History',
+                                style: TextStyle(
+                                    fontFamily: 'montserrat', fontSize: 10.0),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
