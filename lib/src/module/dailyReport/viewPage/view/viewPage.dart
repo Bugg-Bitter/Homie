@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:homie/src/module/dailyReport/viewPage/components/mobile.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ViewPageDataStart extends StatelessWidget {
   const ViewPageDataStart({Key? key}) : super(key: key);
