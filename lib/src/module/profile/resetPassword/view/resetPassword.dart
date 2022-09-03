@@ -80,7 +80,7 @@ class _ResetPasswordUIState extends State<ResetPasswordUI> {
                   width: double.infinity,
                   child: Center(
                       child: Text(
-                    'Receive an Email to\n  Reset your password',
+                    'Receive an Email to\nReset your password',
                     style: TextStyle(
                         fontSize: 17.0, fontWeight: FontWeight.w600),
                   )),

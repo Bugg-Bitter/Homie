@@ -269,7 +269,8 @@ class _ProfileUIState extends State<ProfileUI> {
                     ),
                     child: GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ViewPageDataStart()));
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => ViewPageDataStart()));
                       },
                       child: Container(
                         width: double.infinity,
@@ -374,55 +375,55 @@ class _ProfileUIState extends State<ProfileUI> {
                       right: 40.0,
                       top: 20.0,
                     ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext conext) =>
-                                    UpdateProfileStart()));
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 70.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Icon(
-                                    Icons.settings,
-                                    color: Color(0xFF1648CE),
-                                  ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 70.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Icon(
+                                  Icons.settings,
+                                  color: Color(0xFF1648CE),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 110.0),
-                                  child: Text(
-                                    'Profile Setting',
-                                    style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontFamily: 'montserrat',
-                                        fontWeight: FontWeight.w800),
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.0),
+                                child: Text(
+                                  'Profile Setting',
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontFamily: 'montserrat',
+                                      fontWeight: FontWeight.w800),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 10.0),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext conext) =>
+                                                UpdateProfileStart()));
+                                  },
                                   child: Icon(
                                     Icons.arrow_forward_ios_rounded,
                                     color: Color(0XFF1648CE),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -432,58 +433,116 @@ class _ProfileUIState extends State<ProfileUI> {
                       right: 40.0,
                       top: 20.0,
                     ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (BuildContext conext) =>
-                                    ResetPasswordStart()));
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 70.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(left: 8.0),
-                                  child: Icon(
-                                    Icons.lock_open_rounded,
-                                    color: Color(0xFF1648CE),
-                                  ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 70.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 8.0),
+                                child: Icon(
+                                  Icons.lock_open_rounded,
+                                  color: Color(0xFF1648CE),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 110.0),
-                                  child: Text(
-                                    'Reset Password',
-                                    style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontFamily: 'montserrat',
-                                        fontWeight: FontWeight.w800),
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20.0),
+                                child: Text(
+                                  'Reset Password',
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontFamily: 'montserrat',
+                                      fontWeight: FontWeight.w800),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 10.0),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (BuildContext conext) =>
+                                                          ResetPasswordStart()));
+                                  },
                                   child: Icon(
                                     Icons.arrow_forward_ios_rounded,
                                     color: Color(0XFF1648CE),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(
+                  //     left: 40.0,
+                  //     right: 40.0,
+                  //     top: 20.0,
+                  //   ),
+                  //   child: InkWell(
+                  //     onTap: () {
+                  //       // Navigator.push(
+                  //       //     context,
+                  //       //     MaterialPageRoute(
+                  //       //         builder: (BuildContext conext) =>
+                  //       //             ResetPasswordStart()));
+                  //     },
+                  //     child: Container(
+                  //       width: double.infinity,
+                  //       height: 70.0,
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(20.0),
+                  //         color: Colors.white,
+                  //       ),
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.center,
+                  //         children: [
+                  //           Row(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //             children: [
+                  //               Padding(
+                  //                 padding: EdgeInsets.only(left: 8.0),
+                  //                 child: Icon(
+                  //                   Icons.lock_open_rounded,
+                  //                   color: Color(0xFF1648CE),
+                  //                 ),
+                  //               ),
+                  //               Padding(
+                  //                 padding: EdgeInsets.only(right: 110.0),
+                  //                 child: Text(
+                  //                   'Reset Password',
+                  //                   style: TextStyle(
+                  //                       fontSize: 18.0,
+                  //                       fontFamily: 'montserrat',
+                  //                       fontWeight: FontWeight.w800),
+                  //                 ),
+                  //               ),
+                  //               Padding(
+                  //                 padding: EdgeInsets.only(right: 10.0),
+                  //                 child: Icon(
+                  //                   Icons.arrow_forward_ios_rounded,
+                  //                   color: Color(0XFF1648CE),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Padding(
                     padding: EdgeInsets.only(
                       left: 40.0,
@@ -492,7 +551,8 @@ class _ProfileUIState extends State<ProfileUI> {
                       bottom: 20.0,
                     ),
                     child: InkWell(
-                      onTap: () => FirebaseAuth.instance.signOut(),
+                      // onTap: () =>
+                          // FirebaseAuth.instance.signOut(),
                       child: Container(
                         width: double.infinity,
                         height: 70.0,
