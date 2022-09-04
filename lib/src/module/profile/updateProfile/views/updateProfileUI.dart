@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -330,8 +331,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     child: ElevatedButton(
                       onPressed: () {
                         updateInfoTracker++;
-                        final docUser = FirebaseFirestore.instance.collection('newUser').doc(updatedEmailController.text.trim());
-
+                        final docUser = FirebaseFirestore.instance.collection('newUser').doc(loggedInUserMail);
                         docUser.update({
                           'name':updatedNameController.text,
                           'password':updatedPasswordController.text,
@@ -340,9 +340,10 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                           'email':updatedEmailController.text,
                           'dateOfBirth':updatedDOBController.text,
                         });
-                        _updatedUser(updatedEmailController.text.trim(),
-                        updatedPasswordController.text.trim());
+                        _updatedUser(updatedEmailController.text,
+                        updatedPasswordController.text);
                         uploadProfilePic();
+
                         updatedNameController.clear();
                         updatedPasswordController.clear();
                         updatedGenderController.clear();
@@ -387,7 +388,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
   Future<String?> getEmail() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
      setState(() {
-       loggedInUserMail =   prefs.getString('userEmail');
+       loggedInUserMail = prefs.getString('userEmail');
        print(loggedInUserMail);
      });
      return loggedInUserMail;
@@ -405,4 +406,25 @@ Future uploadProfilePic()async {
   final destination = 'newUsersProfilePic/$filename';
   FirebaseApi.uploadFile(destination,image!);
 }
+}
+Future createNewUser(
+    {required String newName,
+      required String newGender,
+      required String newEmail,
+      required String newDOB,
+      required String newPhone,
+      required String newPassword}) async {
+  final newPersonInfo =
+  FirebaseFirestore.instance.collection('newUser').doc(newEmail);
+  final jsonData = {
+    'name': newName,
+    'gender': newGender,
+    'email': newEmail,
+    'dateOfBirth': newDOB,
+    'phone': newPhone,
+    'password': newPassword,
+  };
+
+  await newPersonInfo.set(jsonData);
+
 }

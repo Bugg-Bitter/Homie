@@ -47,7 +47,7 @@ class _HomeUIState extends State<HomeUI> {
                           style: TextStyle(
                               fontFamily: 'montserrat',
                               fontWeight: FontWeight.w500,
-                              fontSize: 18.0),
+                              fontSize: 15.0),
                         ),
                       ),
                     ),
@@ -61,11 +61,11 @@ class _HomeUIState extends State<HomeUI> {
                       borderRadius: BorderRadius.circular(12.0),
                       child: Container(
                         child: Text(
-                          'Airticles',
+                          'Articles',
                           style: TextStyle(
                               fontFamily: 'montserrat',
                               fontWeight: FontWeight.w500,
-                              fontSize: 18.0),
+                              fontSize: 15.0),
                         ),
                       ),
                     ),

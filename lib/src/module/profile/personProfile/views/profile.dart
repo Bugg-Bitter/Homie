@@ -62,19 +62,16 @@ class _ProfileUIState extends State<ProfileUI> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            height: 35.0,
-                            width: 35.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: Icon(
-                              Icons.arrow_back_ios_new_rounded,
-                              color: Color(0xFF1648CE),
-                            ),
+                        Container(
+                          height: 35.0,
+                          width: 35.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Icon(
+                            Icons.arrow_back_ios_new_rounded,
+                            color: Color(0xFF1648CE),
                           ),
                         ),
                         Text(
@@ -159,10 +156,13 @@ class _ProfileUIState extends State<ProfileUI> {
                             builder:
                                 (BuildContext context, AsyncSnapshot snapshot) {
                               if (snapshot.hasError) {
-                                return Text(
-                                  'connection dosn\'t stablished Properly',
-                                  style: TextStyle(
-                                      fontSize: 14.0, color: Colors.black),
+                                return Padding(
+                                  padding: EdgeInsets.only(left:ScreenHeight/30.0),
+                                  child: Text(
+                                    'connection don\'t\nestablished Properly',
+                                    style: TextStyle(
+                                        fontSize: 14.0, color: Colors.black),
+                                  ),
                                 );
                               } else if (snapshot.hasData) {
                                 final user = snapshot.data;
@@ -178,9 +178,7 @@ class _ProfileUIState extends State<ProfileUI> {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Text(
-                                              updateInfoTracker > 0
-                                                  ? userName
-                                                  : user.name,
+                                          user.name,
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w600),
@@ -198,9 +196,7 @@ class _ProfileUIState extends State<ProfileUI> {
                                                   padding:
                                                       EdgeInsets.only(left: 8.0),
                                                   child: Text(
-                                                    updateInfoTracker > 0
-                                                        ? userDOB
-                                                        : user.dob,
+                                                    user.dob,
                                                     style: TextStyle(
                                                         color: Colors.black),
                                                   ),
@@ -220,10 +216,7 @@ class _ProfileUIState extends State<ProfileUI> {
                                                     size: 18.0,
                                                     color: Color(0xFF1648CE),
                                                   ),
-                                                  Text(
-                                                    updateInfoTracker > 0
-                                                        ? userPhone
-                                                        : user.phoneNo,
+                                                  Text(user.phoneNo,
                                                     style: TextStyle(
                                                         color: Colors.black),
                                                   )
@@ -398,7 +391,7 @@ class _ProfileUIState extends State<ProfileUI> {
                               Padding(
                                 padding: EdgeInsets.only(right: 20.0),
                                 child: Text(
-                                  'Profile Setting',
+                                  'Profile Settings',
                                   style: TextStyle(
                                       fontSize: 18.0,
                                       fontFamily: 'montserrat',
@@ -485,64 +478,6 @@ class _ProfileUIState extends State<ProfileUI> {
                       ),
                     ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(
-                  //     left: 40.0,
-                  //     right: 40.0,
-                  //     top: 20.0,
-                  //   ),
-                  //   child: InkWell(
-                  //     onTap: () {
-                  //       // Navigator.push(
-                  //       //     context,
-                  //       //     MaterialPageRoute(
-                  //       //         builder: (BuildContext conext) =>
-                  //       //             ResetPasswordStart()));
-                  //     },
-                  //     child: Container(
-                  //       width: double.infinity,
-                  //       height: 70.0,
-                  //       decoration: BoxDecoration(
-                  //         borderRadius: BorderRadius.circular(20.0),
-                  //         color: Colors.white,
-                  //       ),
-                  //       child: Column(
-                  //         mainAxisAlignment: MainAxisAlignment.center,
-                  //         children: [
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //             children: [
-                  //               Padding(
-                  //                 padding: EdgeInsets.only(left: 8.0),
-                  //                 child: Icon(
-                  //                   Icons.lock_open_rounded,
-                  //                   color: Color(0xFF1648CE),
-                  //                 ),
-                  //               ),
-                  //               Padding(
-                  //                 padding: EdgeInsets.only(right: 110.0),
-                  //                 child: Text(
-                  //                   'Reset Password',
-                  //                   style: TextStyle(
-                  //                       fontSize: 18.0,
-                  //                       fontFamily: 'montserrat',
-                  //                       fontWeight: FontWeight.w800),
-                  //                 ),
-                  //               ),
-                  //               Padding(
-                  //                 padding: EdgeInsets.only(right: 10.0),
-                  //                 child: Icon(
-                  //                   Icons.arrow_forward_ios_rounded,
-                  //                   color: Color(0XFF1648CE),
-                  //                 ),
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   Padding(
                     padding: EdgeInsets.only(
                       left: 40.0,
@@ -551,8 +486,8 @@ class _ProfileUIState extends State<ProfileUI> {
                       bottom: 20.0,
                     ),
                     child: InkWell(
-                      // onTap: () =>
-                          // FirebaseAuth.instance.signOut(),
+                      onTap: () =>
+                          FirebaseAuth.instance.signOut(),
                       child: Container(
                         width: double.infinity,
                         height: 70.0,

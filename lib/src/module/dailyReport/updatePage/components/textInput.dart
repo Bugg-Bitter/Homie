@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class TextInput extends StatefulWidget {
   final String headertext;
   final double boxheight;

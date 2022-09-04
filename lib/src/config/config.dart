@@ -35,7 +35,7 @@ final weatherController = TextEditingController();
 final weightController = TextEditingController();
 final extraNotesController = TextEditingController();
 var intercourseController = '';
-var excerciseController = '';
+var exerciseController = '';
 
 
 // Unimplemnted Modules Message

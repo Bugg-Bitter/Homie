@@ -24,27 +24,30 @@ class ViewPageDataUI extends StatefulWidget {
 
 class _ViewPageDataUIState extends State<ViewPageDataUI> {
   int trackedIndex=0;
+  int pdfNo = 0;
    Future <void>_createPDF (DailyReports reports) async {
     PdfDocument document = PdfDocument();
     List <String> partitions = (reports.edateWithTime).split(' ');
     final page = document.pages.add();
     page.graphics.drawString('Date : ${(partitions[0])}                Time : ${partitions[1]}', PdfStandardFont(PdfFontFamily.helvetica, 24));
     page.graphics.drawString('\n\n                       Pulse Rate: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n                   Blood Pressure: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n                   O2 Saturation: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n                 Body Temperature: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n                Diabetics Before meal: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n                    Diabetics After meal: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n                          Weight: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Intercourse: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Weather Report: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n                   Blood Pressure: ${reports.ebp}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n                   O2 Saturation: ${reports.eo2}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n                 Body Temperature: ${reports.etemp}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n                Diabetics Before meal: ${reports.ediabeticsBefore}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n                    Diabetics After meal: ${reports.ediabeticsAfter}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n                          Weight: ${reports.eweight}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Intercourse: ${reports.eintercourse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Exercise: Yes', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Weather Report: ${reports.eweather}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.eextranotes}', PdfStandardFont(PdfFontFamily.helvetica, 24));
     List<int> bytes = await document.save() ;
     document.dispose();
-    saveAndLaunchFile(bytes, 'Generated Report.pdf');
+    saveAndLaunchFile(bytes, 'Generated Report $pdfNo.pdf');
   }
   @override
   Widget build(BuildContext context) {
+     pdfNo++;
     return SafeArea(
         child: Scaffold(
       body: Container(
@@ -111,6 +114,7 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
               Text("Diabetics After : ${reports.ediabeticsAfter}"),
               Text("Weight : ${reports.eweight}"),
               Text("Intercourse : ${reports.eintercourse}"),
+              Text("Exercise : ${reports.eintercourse}"),
               Text("Weather Report : ${reports.eweather}"),
               Padding(
                 padding: EdgeInsets.only(bottom:ScreenHeight / 50.0),
@@ -142,6 +146,7 @@ class DailyReports {
   final String eweather;
   final String eweight;
   final String edateWithTime;
+  final String eexercise;
 
   DailyReports( {
     required this.ebp,
@@ -155,6 +160,7 @@ class DailyReports {
     required this.eweather,
     required this.eweight,
     required this.edateWithTime,
+    required this.eexercise,
     // required this.location
   });
 
@@ -169,6 +175,7 @@ class DailyReports {
         'weather':eweather,
         'weight':eweight,
         'dateWitTime':edateWithTime,
+        'exercise':eexercise,
       };
 
   static DailyReports fromJson(Map<String, dynamic> json) => DailyReports(
@@ -182,6 +189,7 @@ class DailyReports {
         etemp: json['temp'],
         eweather: json['weather'],
         eweight: json['weight'],
+        eexercise: json['exercise'],
         edateWithTime: json['dateWithTime'],
       );
 }

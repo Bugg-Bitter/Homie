@@ -19,7 +19,7 @@ List<String> hospitalImages = [
 List<String> hospitalNames = [
   'Heart Foundation',
   'Lazz Pharma',
-  'Chiropractic Treatment bd',
+  'Chiropra Center',
   'CuraFoot Clinic',
   'City Eye Center',
   'KB Dental Surgery',
@@ -39,8 +39,8 @@ List<String> pharmacyImages = [
 List<String> pharmacyNames = [
   'Desh Pharmacy',
   'Care Pharmacy',
-  'Ferdousi Pharmacy',
-  'Receptor pharmacy',
+  'Ferous Pharma',
+  'Recept pharma',
   'Q Pharma Ltd',
   'M.M. Pharma'
 ];

@@ -4,7 +4,6 @@ import 'package:homie/src/config/config.dart';
 import 'package:intl/intl.dart';
 
 class SavedWarningBox extends StatefulWidget {
-
   const SavedWarningBox({
     Key? key,
   }) : super(key: key);
@@ -18,7 +17,6 @@ class _SavedWarningBoxState extends State<SavedWarningBox> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-
         if (pulseRatefromKey.currentState!.validate()) {
           if (BPfromKey.currentState!.validate()) {
             if (O2fromKey.currentState!.validate()) {
@@ -40,10 +38,12 @@ class _SavedWarningBoxState extends State<SavedWarningBox> {
                           final fullWeight = weightController.text;
                           final fullExtraNotes = extraNotesController.text;
                           final fullIntercourse = intercourseController;
+                          final fullExercise = exerciseController;
 
                           createNewReport(
                             newPulseRate: fullPulseRate,
                             newBP: fullBP,
+                            newExercise:fullExercise,
                             newO2: fullO2,
                             newTempIn: fullTempIn,
                             newDiabetiesBefore: fullDiabetiesBefore,
@@ -136,7 +136,8 @@ class _SavedWarningBoxState extends State<SavedWarningBox> {
       required String newWeight,
       required String newExtraNotes,
       required String newIntercourse,
-      required String newDateAndTimes
+      required String newDateAndTimes,
+      required String newExercise,
       }
       ) async {
 
@@ -153,6 +154,7 @@ class _SavedWarningBoxState extends State<SavedWarningBox> {
       'extranotes':newExtraNotes,
       'intercourse':newIntercourse,
       'dateWithTime':newDateAndTimes,
+      'exercise':newExercise,
     };
     await newDailyReport.set(jsonData);
     print('Successfully inserted');

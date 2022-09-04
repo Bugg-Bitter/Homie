@@ -14,6 +14,7 @@ class _reportViewState extends State<reportView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       home: Scaffold(
         body: Container(
           width: double.infinity,

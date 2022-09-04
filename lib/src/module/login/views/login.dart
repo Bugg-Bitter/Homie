@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 1.31, right: ScreenWidth / 10.0, left: ScreenWidth / 10.0),
+                  padding: EdgeInsets.only(top: ScreenHeight / 1.25, right: ScreenWidth / 10.0, left: ScreenWidth / 10.0),
                   child: SizedBox(
                     width: ScreenWidth,
                     height: 50,
@@ -177,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 1.19),
+                  padding: EdgeInsets.only(top: ScreenHeight / 1.12),
                   child: RichText(
                     text: TextSpan(
                         text: "Don\'n have an account?  ",
@@ -194,7 +194,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.blueAccent,
                             ),
                           ),
-                        ]),
+                        ],
+                    ),
                   ),
                 ),
               ],

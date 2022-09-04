@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:homie/src/config/config.dart';
 
 class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+  MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
@@ -22,7 +22,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               color: Color.fromARGB(255, 22, 71, 206),
               width: 1.5,
               style: BorderStyle.solid),
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          borderRadius: BorderRadius.all(Radius.circular(10.0),
+          ),
         ),
       ),
       child: DropdownButton<String>(
@@ -54,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           return DropdownMenuItem<String>(
             value: value,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: EdgeInsets.only(left: 15.0),
               child: Text(
                 value,
                 style:
