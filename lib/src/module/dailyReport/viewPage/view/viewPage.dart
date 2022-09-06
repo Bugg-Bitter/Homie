@@ -40,7 +40,7 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
     page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Intercourse: ${reports.eintercourse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
     page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Exercise: Yes', PdfStandardFont(PdfFontFamily.helvetica, 24));
     page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Weather Report: ${reports.eweather}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.eextranotes}', PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.eextranotes}', PdfStandardFont(PdfFontFamily.helvetica, 24));
     List<int> bytes = await document.save() ;
     document.dispose();
     saveAndLaunchFile(bytes, 'Generated Report $pdfNo.pdf');

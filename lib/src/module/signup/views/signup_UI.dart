@@ -65,6 +65,7 @@ class _SignUpUIState extends State<SignUpUI> {
           width: double.infinity,
           child: SingleChildScrollView(
             child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Stack(
                   alignment: Alignment.center,
