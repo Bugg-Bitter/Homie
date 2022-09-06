@@ -10,8 +10,6 @@
     <list default="true" id="2bd43696-e85a-491e-9fc7-b484b2ad6280" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/29eec764dc0057755501cad08b7f191d/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/29eec764dc0057755501cad08b7f191d/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/29eec764dc0057755501cad08b7f191d/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/29eec764dc0057755501cad08b7f191d/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/5e9f7d4bf43137e0dc62b6cf53403f84/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/5e9f7d4bf43137e0dc62b6cf53403f84/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/5e9f7d4bf43137e0dc62b6cf53403f84/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/5e9f7d4bf43137e0dc62b6cf53403f84/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
@@ -19,28 +17,17 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/assets/debug/mergeDebugAssets/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/mergeDebugAssets/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/Homie" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/config/config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/config/config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/dropBox.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/dropBox.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/myStateFullWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/myStateFullWidget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/savedWarningBox.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/savedWarningBox.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/textInput.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/dailyReport/updatePage/components/textInput.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/dailyReport/viewPage/view/viewPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/dailyReport/viewPage/view/viewPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/home/views/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/home/views/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/login/views/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/login/views/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/medicalReport/views/report_views.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/medicalReport/views/report_views.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/profile/personProfile/views/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/profile/personProfile/views/profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/profile/updateProfile/views/updateProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/profile/updateProfile/views/updateProfileUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/module/search/config/search_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/module/search/config/search_config.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
