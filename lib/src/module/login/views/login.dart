@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _secureText = true;
   String userEmail = '';
   String userPassword = '';
+
   final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top:  ScreenHeight/2.1),
+                  padding: EdgeInsets.only(top: ScreenHeight / 2.1),
                   child: Text(
                     'Welcome to',
                     style: TextStyle(
@@ -82,7 +83,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 1.75, right: ScreenWidth / 10.0, left: ScreenWidth / 10.0),
+                  padding: EdgeInsets.only(
+                      top: ScreenHeight / 1.75,
+                      right: ScreenWidth / 10.0,
+                      left: ScreenWidth / 10.0),
                   child: TextFormField(
                     mouseCursor: MouseCursor.defer,
                     controller: emailController,
@@ -90,10 +94,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       userEmail = value!;
                     }),
                     decoration: InputDecoration(
-                      errorBorder: OutlineInputBorder(
-                        borderRadius:BorderRadius.circular(30.0), 
-                      ),
-                        errorStyle: TextStyle(fontFamily: 'montserrat',fontSize: 14.0,color: Colors.redAccent),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        errorStyle: TextStyle(
+                            fontFamily: 'montserrat',
+                            fontSize: 14.0,
+                            color: Colors.redAccent),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
@@ -101,18 +108,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         hintStyle: TextStyle(color: Colors.grey[800]),
                         hintText: "  User Name or Email",
                         fillColor: Colors.white70),
-                        validator: (value) {
-                          if(value!.isEmpty){
-                            return 'Enter registered Mail';
-                          }
-                          else {
-                            return null;
-                          }
-                        },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter registered Mail';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 1.49, right: ScreenWidth / 10.0, left: ScreenWidth / 10.0),
+                  padding: EdgeInsets.only(
+                      top: ScreenHeight / 1.49,
+                      right: ScreenWidth / 10.0,
+                      left: ScreenWidth / 10.0),
                   child: TextFormField(
                     controller: passwordController,
                     obscureText: _secureText,
@@ -129,11 +138,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               : Icons.security)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
-                        
                       ),
-                      errorStyle: TextStyle(fontFamily: 'montserrat',fontSize: 14.0,color: Colors.redAccent),
+                      errorStyle: TextStyle(
+                          fontFamily: 'montserrat',
+                          fontSize: 14.0,
+                          color: Colors.redAccent),
                       errorBorder: OutlineInputBorder(
-                        borderRadius:BorderRadius.circular(30.0), 
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                       filled: true,
                       hintStyle: TextStyle(color: Colors.grey[800]),
@@ -141,9 +152,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       fillColor: Colors.white70,
                     ),
                     validator: (value) {
-                      if(value!.length < 5){
+                      if (value!.length < 5) {
                         return 'Enter atleast 5 characters';
-                      }else {
+                      } else {
                         return null;
                       }
                     },
@@ -151,7 +162,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 1.25, right: ScreenWidth / 10.0, left: ScreenWidth / 10.0),
+                  padding: EdgeInsets.only(
+                      top: ScreenHeight / 1.25,
+                      right: ScreenWidth / 10.0,
+                      left: ScreenWidth / 10.0),
                   child: SizedBox(
                     width: ScreenWidth,
                     height: 50,
@@ -167,7 +181,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Color(0xFF0B63F6)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
@@ -180,21 +195,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.only(top: ScreenHeight / 1.12),
                   child: RichText(
                     text: TextSpan(
-                        text: "Don\'n have an account?  ",
-                        style: TextStyle(color: Color(0xFF686C79)),
-                        children: [
-                          TextSpan(
-                            recognizer: TapGestureRecognizer()..onTap = () => {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => SignUpStart())),
-                            },
-                            text: 'SIGN UP!',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: Colors.blueAccent,
-                            ),
+                      text: "Don\'n have an account?  ",
+                      style: TextStyle(color: Color(0xFF686C79)),
+                      children: [
+                        TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => SignUpStart())),
+                                },
+                          text: 'SIGN UP!',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: Colors.blueAccent,
                           ),
-                        ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -208,17 +226,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future signIn() async {
     final isValid = formKey.currentState!.validate();
-    if(isValid){
+    if (isValid) {
       formKey.currentState!.save();
-      // signedInEmail = emailController.text.trim();
-      // signedInPass = passwordController.text.trim();
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('userEmail', emailController.text);
-      print('Email has been saved');
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+        errorMsg = '';
+      } on FirebaseAuthException catch (error) {
+        ScaffoldMessenger.of(context).showSnackBar(wrongPassResponse);
+      }
     }
   }
 }

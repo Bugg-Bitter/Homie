@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 DateTime now = DateTime.now();
 String date = DateFormat('yMd').format(now);
 DateFormat time = DateFormat.jm();
@@ -23,7 +24,6 @@ final weatherformKey = GlobalKey<FormState>();
 final weightfromKey = GlobalKey<FormState>();
 final extraNotesfromKey = GlobalKey<FormState>();
 
-
 // Global Defining Controllers...
 final pulseRateController = TextEditingController();
 final BPController = TextEditingController();
@@ -36,7 +36,7 @@ final weightController = TextEditingController();
 final extraNotesController = TextEditingController();
 var intercourseController = '';
 var exerciseController = '';
-
+String errorMsg = '';
 
 // Unimplemnted Modules Message
 final nonImplementedMsg = MaterialApp(
@@ -67,20 +67,43 @@ class NonImplementedModules extends StatelessWidget {
     );
   }
 }
-  @override
-  Widget snackBaar(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        child: SnackBar(content: Text('Added to Firebase',style: TextStyle(fontSize: 18.0,fontFamily: 'montserrat',),)),
-      ),
-    );
-  }
+
+@override
+Widget snackBaar(BuildContext context) {
+  return Scaffold(
+    body: Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: SnackBar(
+          content: Text(
+        'Added to Firebase',
+        style: TextStyle(
+          fontSize: 18.0,
+          fontFamily: 'montserrat',
+        ),
+      )),
+    ),
+  );
+}
+
+// Firebase Wrong Pass response message..
+final wrongPassResponse = SnackBar(
+    duration: Duration(milliseconds: 1500),
+    content: Text(
+      'Wrong Password !',
+      style: TextStyle(color: Colors.amberAccent, fontSize: 18.0),
+    ));
+
+// Firebase SuccsessFul Login Response
+final successResponse = SnackBar(
+    duration: Duration(milliseconds: 1500),
+    content: Text(
+      'Wrong Password !',
+      style: TextStyle(color: Colors.amberAccent, fontSize: 18.0),
+    ));
 
 // Suggested Doctor Numbers [Constant]
 const totalDoctor = 6;
-
 
 // SignUp total TextFields [Constant]
 const totalSignUpTextFields = 5;
@@ -88,7 +111,7 @@ const totalSignUpTextFields = 5;
 String signedInEmail = '';
 String signedInPass = '';
 
-List <String> reportsList = [
+List<String> reportsList = [
   'repo1.png',
   'repo2.png',
   'repo3.png',
@@ -103,7 +126,7 @@ List <String> reportsList = [
   'repo12.png',
 ];
 
-List <String> cardTitles = [
+List<String> cardTitles = [
   'Monkeypox Treatment',
   'Unplug and Mind Wander',
   'People Respond Drugs',
@@ -111,7 +134,7 @@ List <String> cardTitles = [
   'Genetic variations',
 ];
 
-List <String> imgLocation = [
+List<String> imgLocation = [
   'asset/homepage/airticle1.png',
   'asset/homepage/airticle2.png',
   'asset/homepage/airticle3.png',
@@ -119,6 +142,7 @@ List <String> imgLocation = [
   'asset/homepage/airticle5.png',
 ];
 
-String subtitle = "Health experts working globally\n to lessen the outbreak of monkeypox\n as the WHO has recently declared…";
+String subtitle =
+    "Health experts working globally\n to lessen the outbreak of monkeypox\n as the WHO has recently declared…";
 
 // List list
