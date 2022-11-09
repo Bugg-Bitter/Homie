@@ -115,7 +115,11 @@ class _ProfileUIState extends State<ProfileUI> {
                                   child: Container(
                                       height: 20,
                                       width: 20,
-                                      child: CircularProgressIndicator()),
+                                      child: Text(
+                                        ' No\nImg',
+                                        style: TextStyle(
+                                            fontSize: 8.0, color: Colors.black),
+                                      )),
                                 ));
                               } else {
                                 return Container();
@@ -131,7 +135,7 @@ class _ProfileUIState extends State<ProfileUI> {
                               padding:
                                   EdgeInsets.only(left: ScreenHeight / 30.0),
                               child: Text(
-                                'connection don\'t\nestablished Properly',
+                                'Unable to load data',
                                 style: TextStyle(
                                     fontSize: 14.0, color: Colors.black),
                               ),
@@ -199,27 +203,11 @@ class _ProfileUIState extends State<ProfileUI> {
                                   );
                           } else {
                             return Center(
-                              child: CircularProgressIndicator(),
+                              child: Text('No Image',
+                                  style: TextStyle(color: Colors.black)),
                             );
                           }
                         },
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 40.0, bottom: 30.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                              height: 35.0,
-                              width: 35.0,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Icon(
-                                Icons.edit,
-                                color: Color(0xFF1648CE),
-                              )),
-                        ),
                       ),
                     ],
                   ),
