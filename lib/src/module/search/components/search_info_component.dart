@@ -9,7 +9,7 @@ class InfoComponent extends StatelessWidget {
     required this.imageLink,
     required this.listNames,
     required this.listInfo,
-    required this.index, 
+    required this.index,
     required this.currentStateTitle,
   }) : super(key: key);
 
@@ -56,23 +56,24 @@ class InfoComponent extends StatelessWidget {
                     children: [
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
-                        child: Expanded(
-                          child: Text(
-                            '${listNames[index]}',
-                            style: TextStyle(
-                                fontSize: 18.0, fontWeight: FontWeight.w700),
-                          ),
+                        child: Text(
+                          '${listNames[index]}',
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w700),
                         ),
                       ),
-                      currentStateTitle == 'Doctor' ?  Padding(
-                        padding: EdgeInsets.only(top: 8.0),
-                        child: Text(
-                          textAlign: TextAlign.left,
-                          '${listInfo[index]}',
-                          style: TextStyle(
-                              fontSize: 14.0, fontWeight: FontWeight.w700),
-                        ),
-                      ): Container(),
+                      currentStateTitle == 'Doctor'
+                          ? Padding(
+                              padding: EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                textAlign: TextAlign.left,
+                                '${listInfo[index]}',
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            )
+                          : Container(),
                     ],
                   ),
                   InkWell(
@@ -85,8 +86,8 @@ class InfoComponent extends StatelessWidget {
                                     designation: listInfo[index],
                                     name: listNames[index],
                                     assignedHospital: hospitalNames[index],
-                                    specialist:degree,
-                                    department:departments[index],
+                                    specialist: degree,
+                                    department: departments[index],
                                     tracker: index,
                                     stateTitle: currentStateTitle,
                                   )));
