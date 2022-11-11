@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../config/config.dart';
 import '../../config/search_config.dart';
-import '../search_info_component.dart';
+import '../sector_components/search_info_component.dart';
 
 class SelectedSectorsLists extends StatelessWidget {
   const SelectedSectorsLists({
