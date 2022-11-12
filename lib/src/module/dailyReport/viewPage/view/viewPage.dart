@@ -9,7 +9,7 @@ class ViewPageDataStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner:false,
+      debugShowCheckedModeBanner: false,
       home: ViewPageDataUI(),
     );
   }
@@ -23,31 +23,56 @@ class ViewPageDataUI extends StatefulWidget {
 }
 
 class _ViewPageDataUIState extends State<ViewPageDataUI> {
-  int trackedIndex=0;
+  int trackedIndex = 0;
   int pdfNo = 0;
-   Future <void>_createPDF (DailyReports reports) async {
+  Future<void> _createPDF(DailyReports reports) async {
     PdfDocument document = PdfDocument();
-    List <String> partitions = (reports.edateWithTime).split(' ');
+    List<String> partitions = (reports.edateWithTime).split(' ');
     final page = document.pages.add();
-    page.graphics.drawString('Date : ${(partitions[0])}                Time : ${partitions[1]}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n                       Pulse Rate: ${reports.epulse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n                   Blood Pressure: ${reports.ebp}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n                   O2 Saturation: ${reports.eo2}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n                 Body Temperature: ${reports.etemp}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n                Diabetics Before meal: ${reports.ediabeticsBefore}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n                    Diabetics After meal: ${reports.ediabeticsAfter}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n                          Weight: ${reports.eweight}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Intercourse: ${reports.eintercourse}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Exercise: Yes', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Weather Report: ${reports.eweather}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    page.graphics.drawString('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.eextranotes}', PdfStandardFont(PdfFontFamily.helvetica, 24));
-    List<int> bytes = await document.save() ;
+    page.graphics.drawString(
+        'Date : ${(partitions[0])}                Time : ${partitions[1]}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n                       Pulse Rate: ${reports.epulse}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n                   Blood Pressure: ${reports.ebp}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n                   O2 Saturation: ${reports.eo2}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n                 Body Temperature: ${reports.etemp}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n                Diabetics Before meal: ${reports.ediabeticsBefore}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n                    Diabetics After meal: ${reports.ediabeticsAfter}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n\n\n                          Weight: ${reports.eweight}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Intercourse: ${reports.eintercourse}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                        Exercise: Yes',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Weather Report: ${reports.eweather}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    page.graphics.drawString(
+        '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      Extra Notes: ${reports.eextranotes}',
+        PdfStandardFont(PdfFontFamily.helvetica, 24));
+    List<int> bytes = await document.save();
     document.dispose();
     saveAndLaunchFile(bytes, 'Generated Report $pdfNo.pdf');
   }
+
   @override
   Widget build(BuildContext context) {
-     pdfNo++;
+    pdfNo++;
     return SafeArea(
         child: Scaffold(
       body: Container(
@@ -57,37 +82,44 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
           children: [
             Expanded(
               child: StreamBuilder<List<DailyReports>>(
-                stream: readDailyReports(),
-                builder: (context,snapshot){
-                  if(snapshot.hasError){
-                    return Text('Data isn\'t loading');
-                  }
-                  else if(snapshot.hasData){
-                    final reports = snapshot.data!;
-                    return ListView(
-                      children: reports.map(buildReports).toList(),
-                    );
-                  }else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                }),
+                  stream: readDailyReports(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          '  No data is saved in \nFirebase for this user .',
+                          style: TextStyle(
+                              fontFamily: 'montserrat', fontSize: 18.0),
+                        ),
+                      );
+                    } else if (snapshot.hasData) {
+                      final reports = snapshot.data!;
+                      return ListView(
+                        children: reports.map(buildReports).toList(),
+                      );
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  }),
             ),
           ],
         ),
       ),
     ));
   }
+
   Widget buildReports(DailyReports reports) {
     trackedIndex++;
     double ScreenHeight = MediaQuery.of(context).size.height;
     double ScreenWidth = MediaQuery.of(context).size.width;
-    List <String> partitions = (reports.edateWithTime).split(' ');
+    List<String> partitions = (reports.edateWithTime).split(' ');
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         _createPDF(reports);
       },
       child: Padding(
-        padding: EdgeInsets.fromLTRB(ScreenWidth / 10.0,ScreenHeight / 20.0,ScreenWidth / 10.0,ScreenHeight / 20.0),
+        padding: EdgeInsets.fromLTRB(ScreenWidth / 10.0, ScreenHeight / 20.0,
+            ScreenWidth / 10.0, ScreenHeight / 20.0),
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -97,7 +129,8 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.only(top:ScreenHeight / 50.0,bottom: ScreenHeight / 50.0),
+                padding: EdgeInsets.only(
+                    top: ScreenHeight / 50.0, bottom: ScreenHeight / 50.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -117,7 +150,7 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
               Text("Exercise : ${reports.eintercourse}"),
               Text("Weather Report : ${reports.eweather}"),
               Padding(
-                padding: EdgeInsets.only(bottom:ScreenHeight / 50.0),
+                padding: EdgeInsets.only(bottom: ScreenHeight / 50.0),
                 child: Text("Extra Notes : ${reports.eextranotes}"),
               ),
             ],
@@ -126,6 +159,7 @@ class _ViewPageDataUIState extends State<ViewPageDataUI> {
       ),
     );
   }
+
   Stream<List<DailyReports>> readDailyReports() => FirebaseFirestore.instance
       .collection('dailyReports')
       .snapshots()
@@ -148,7 +182,7 @@ class DailyReports {
   final String edateWithTime;
   final String eexercise;
 
-  DailyReports( {
+  DailyReports({
     required this.ebp,
     required this.ediabeticsBefore,
     required this.ediabeticsAfter,
@@ -167,15 +201,15 @@ class DailyReports {
   Map<String, dynamic> toJson() => {
         'diabeticsBefore': ediabeticsBefore,
         'diabeticsAfter': ediabeticsAfter,
-        'extranotes':eextranotes,
+        'extranotes': eextranotes,
         'temp': etemp,
         'intercourse': eintercourse,
         'o2': eo2,
-        'pulse':epulse,
-        'weather':eweather,
-        'weight':eweight,
-        'dateWitTime':edateWithTime,
-        'exercise':eexercise,
+        'pulse': epulse,
+        'weather': eweather,
+        'weight': eweight,
+        'dateWitTime': edateWithTime,
+        'exercise': eexercise,
       };
 
   static DailyReports fromJson(Map<String, dynamic> json) => DailyReports(
@@ -184,7 +218,7 @@ class DailyReports {
         ediabeticsAfter: json['diabeticsAfter'],
         eextranotes: json['extranotes'],
         eintercourse: json['intercourse'],
-        eo2:json['o2'],
+        eo2: json['o2'],
         epulse: json['pulse'],
         etemp: json['temp'],
         eweather: json['weather'],
