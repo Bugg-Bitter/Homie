@@ -1,6 +1,6 @@
-# homie
+# HOMIE
 
-A new Flutter project.
+To solve the health problems by predicting health Data from the Paitent / User.
 
 ## Getting Started
 
