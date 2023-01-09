@@ -28,6 +28,7 @@ class _NavigationUIState extends State<NavigationUI> {
   int c_index = 0;
   final pages = [
     HomeStart(),
+    // FinalMlOutStart(),
     SearchStart(),
     DailyReportStart(),
     ProfileStart(),

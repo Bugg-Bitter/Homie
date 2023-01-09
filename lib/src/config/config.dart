@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -145,4 +147,39 @@ List<String> imgLocation = [
 String subtitle =
     "Health experts working globally\n to lessen the outbreak of monkeypox\n as the WHO has recently declared…";
 
-// List list
+// List of Predicitons
+List<String> predictionList = [
+  "Body Temperature",
+  "Heart Rate",
+  "Breathing Rate",
+  "Blood Pressure",
+  "Blood Sugar",
+  "Others",
+];
+
+List<String> predictionListPages = [
+  "MlInputsUI",
+];
+
+const String dummyPics = "https://picsum.photos/200";
+
+/// The Seciton of Randomization
+
+/// FlowChart Scales...
+List<int> xScaleList = [10, 20, 30, 40, 50];
+List<int> yScaleList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+/// Color Accurate
+List upOrDownColor = [
+  Colors.red,
+  Colors.teal,
+];
+
+/// Ml Dummy Graph Points
+List<double> graphXpoints = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+List<double> graphYpoints = [0, 2, 6, 4, 2, 1, 5, 6, 4];
+
+/// The Main Function of Randomization
+Random random = Random();
+int min = 0, max = 2;
+double randomNums = (min + random.nextInt(max - min)) * random.nextDouble();

@@ -21,6 +21,8 @@ dependencies:
   path_provider: ^2.0.11
   syncfusion_flutter_pdf: ^20.2.46
   open_file: ^3.2.1
+  fl_chart: ^0.55.2
+  percent_indicator: ^4.2.2
 
   ### Firebase Section
   #Firebase_Initialized
