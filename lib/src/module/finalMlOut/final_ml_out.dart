@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:homie/src/utils/date_utils.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../config/config.dart';
@@ -40,6 +41,36 @@ class FinalMlOutUI extends StatefulWidget {
 }
 
 class _FinalMlOutUIState extends State<FinalMlOutUI> {
+  int progressBarOrangeIntValue = 0;
+  int progressBarGreenIntValue = 0;
+  int progressBarPurpleIntValue = 0;
+  int orangeStateVal = 0;
+  int greenStateVal = 0;
+  int purpleStateVal = 0;
+  bool isOrange = false;
+  bool isGreen = false;
+  bool isPurple = false;
+
+  @override
+  void initState() {
+    super.initState();
+    orageProgressBar = DateUtilss().multiLinearRegressionDub(85, 35);
+    greenProgressBar = DateUtilss().multiLinearRegressionDub(70, 60);
+    purpleProgressBar = DateUtilss().multiLinearRegressionDub(85, 35);
+    progressBarOrangeIntValue = (orageProgressBar * 100).toInt();
+    progressBarGreenIntValue = (greenProgressBar * 100).toInt();
+    progressBarPurpleIntValue = (purpleProgressBar * 100).toInt();
+    orangeStateVal =
+        (DateUtilss().multiLinearRegressionDub(85, 35) * 100).toInt();
+    greenStateVal =
+        (DateUtilss().multiLinearRegressionDub(85, 35) * 100).toInt();
+    purpleStateVal =
+        (DateUtilss().multiLinearRegressionDub(85, 35) * 100).toInt();
+    isOrange = DateUtilss().multiLinearRegressionBool();
+    isGreen = DateUtilss().multiLinearRegressionBool();
+    isPurple = DateUtilss().multiLinearRegressionBool();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,15 +119,22 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                     lineBarsData: [
                       LineChartBarData(
                         spots: [
-                          // FlSpot(graphXpoints[0], graphYpoints[0]),
-                          FlSpot(graphXpoints[1], graphYpoints[1]),
-                          FlSpot(graphXpoints[2], graphYpoints[2]),
-                          FlSpot(graphXpoints[3], graphYpoints[3]),
-                          FlSpot(graphXpoints[4], graphYpoints[4]),
-                          FlSpot(graphXpoints[5], graphYpoints[5]),
-                          FlSpot(graphXpoints[6], graphYpoints[6]),
-                          FlSpot(graphXpoints[7], graphYpoints[7]),
-                          FlSpot(graphXpoints[8], graphYpoints[8]),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(9, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
+                          FlSpot(DateUtilss().multiLinearRegressionInt(8, 1),
+                              DateUtilss().multiLinearRegressionInt(8, 1)),
                         ],
                         isCurved: true,
                         barWidth: 4,
@@ -142,8 +180,9 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                               children: [
                                 Center(
                                   child: CircularPercentIndicator(
+                                    animateFromLastPercent: true,
                                     center: Text(
-                                      "50%",
+                                      "${progressBarOrangeIntValue}%",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
@@ -151,7 +190,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     ),
                                     backgroundColor: Colors.transparent,
                                     lineWidth: 2.5,
-                                    percent: 0.6,
+                                    percent: orageProgressBar.toDouble(),
                                     progressColor: Colors.white,
                                     radius: 37.0,
                                     circularStrokeCap: CircularStrokeCap.round,
@@ -180,7 +219,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                 Center(
                                   child: CircularPercentIndicator(
                                     center: Text(
-                                      "50%",
+                                      "$progressBarGreenIntValue%",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
@@ -188,7 +227,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     ),
                                     backgroundColor: Colors.transparent,
                                     lineWidth: 2.5,
-                                    percent: 0.6,
+                                    percent: greenProgressBar,
                                     progressColor: Colors.white,
                                     radius: 37.0,
                                     circularStrokeCap: CircularStrokeCap.round,
@@ -217,7 +256,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                 Center(
                                   child: CircularPercentIndicator(
                                     center: Text(
-                                      "50%",
+                                      "$progressBarPurpleIntValue%",
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
@@ -225,7 +264,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     ),
                                     backgroundColor: Colors.transparent,
                                     lineWidth: 2.5,
-                                    percent: 0.6,
+                                    percent: purpleProgressBar,
                                     progressColor: Colors.white,
                                     radius: 37.0,
                                     circularStrokeCap: CircularStrokeCap.round,
@@ -262,12 +301,17 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     borderRadius: BorderRadius.circular(50.0)),
                               ),
                               Text(
-                                " 80",
+                                " $orangeStateVal",
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
-                              CustomPaint(
-                                  size: Size(10, 10),
-                                  painter: DrawUpTriangleShape()),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                                child: CustomPaint(
+                                    size: Size(10, 10),
+                                    painter: isOrange == true
+                                        ? DrawDownTriangleShape()
+                                        : DrawUpTriangleShape()),
+                              ),
                             ],
                           ),
                           Row(
@@ -286,14 +330,16 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     borderRadius: BorderRadius.circular(50.0)),
                               ),
                               Text(
-                                " 80",
+                                " $greenStateVal",
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
                               Padding(
                                 padding: EdgeInsets.only(bottom: 10.0),
                                 child: CustomPaint(
                                     size: Size(10, 10),
-                                    painter: DrawDownTriangleShape()),
+                                    painter: isGreen == true
+                                        ? DrawDownTriangleShape()
+                                        : DrawUpTriangleShape()),
                               ),
                             ],
                           ),
@@ -313,12 +359,17 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                     borderRadius: BorderRadius.circular(50.0)),
                               ),
                               Text(
-                                " 80",
+                                " $purpleStateVal",
                                 style: TextStyle(color: Colors.grey[600]),
                               ),
-                              CustomPaint(
-                                  size: Size(10, 10),
-                                  painter: DrawUpTriangleShape()),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 10.0),
+                                child: CustomPaint(
+                                    size: Size(10, 10),
+                                    painter: isPurple == true
+                                        ? DrawDownTriangleShape()
+                                        : DrawUpTriangleShape()),
+                              ),
                             ],
                           ),
                         ],

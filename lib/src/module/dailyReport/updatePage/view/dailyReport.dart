@@ -63,12 +63,13 @@ class _DailyReportUIState extends State<DailyReportUI> {
                     if (snapshot.connectionState == ConnectionState.done &&
                         snapshot.hasData) {
                       return InfoTemplate(
-                          userName: "Evan", imageUrl: "${snapshot.data!}");
+                          userName: "Sadman Shouviq ",
+                          imageUrl: "${snapshot.data!}");
                     }
                     if (snapshot.connectionState == ConnectionState.waiting ||
                         !snapshot.hasData) {
                       return InfoTemplate(
-                          userName: "Evan", imageUrl: "$dummyPics");
+                          userName: "Sadman Shouviq ", imageUrl: "$dummyPics");
                     } else {
                       return Container();
                     }

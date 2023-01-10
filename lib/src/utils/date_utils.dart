@@ -1,8 +1,10 @@
 library utils;
 
+import 'dart:math';
 import 'package:intl/intl.dart';
+import 'package:tflite_flutter/tflite_flutter.dart';
 
-class DateUtils {
+class DateUtilss {
   static final DateFormat _monthFormat = DateFormat('MMMM yyyy');
   static final DateFormat _dayFormat = DateFormat('dd');
   static final DateFormat _firstDayFormat = DateFormat('MMM dd');
@@ -49,7 +51,7 @@ class DateUtils {
     var first = firstDayOfMonth(month);
     var daysBefore = first.weekday;
     var firstToDisplay = first.subtract(Duration(days: daysBefore));
-    var last = DateUtils.lastDayOfMonth(month);
+    var last = DateUtilss.lastDayOfMonth(month);
 
     var daysAfter = 7 - last.weekday;
 
@@ -162,6 +164,34 @@ class DateUtils {
     return DateTime(year, month);
   }
 
+  double multiLinearRegressionDub(int max, int min) {
+    Random random = Random();
+
+    double num = (min + random.nextDouble() * max) * random.nextDouble();
+    // num /= 100;
+    num = double.parse(customRound(num, 1));
+    print(num / 100);
+    return num / 100;
+  }
+
+  double multiLinearRegressionInt(int max, int min) {
+    Random random = Random();
+    double num = (min + random.nextInt(max - min)) * random.nextDouble();
+    num = double.parse(customRound(num, 1));
+    return num;
+  }
+
+  bool multiLinearRegressionBool() {
+    Random random = Random();
+
+    return random.nextBool();
+  }
+
+  String customRound(double val, int places) {
+    num mod = pow(10.0, places);
+    return ((val * mod).round().toDouble() / mod).toStringAsFixed(places);
+  }
+
   static DateTime nextMonth(DateTime m) {
     var year = m.year;
     var month = m.month;
@@ -181,5 +211,37 @@ class DateUtils {
 
   static DateTime nextWeek(DateTime w) {
     return w.add(Duration(days: 7));
+  }
+}
+
+class Classifier {
+  late Interpreter interpreter;
+  final _modelFile = 'modelSavedModelV2.tflite';
+
+  Classifier() {
+    testModel();
+
+    ///classify(dubOne, dubTwo, dubThree, dubFour);
+  }
+
+  void testModel() async {
+    interpreter = await Interpreter.fromAsset(_modelFile);
+    print('Interpreter loaded successfully');
+  }
+
+  double classify(dubOne, dubTwo, dubThree, dubFour) {
+    var input = [
+      [dubOne, dubTwo, dubThree, dubFour]
+    ];
+
+    // if output tensor shape [1,2] and type is float32
+    var output = List.filled(1 * 1, 0).reshape([1, 1]);
+
+    // inference
+    interpreter.run(input, output);
+
+    interpreter.close();
+
+    return output[0][0];
   }
 }

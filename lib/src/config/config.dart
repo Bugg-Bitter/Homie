@@ -175,11 +175,11 @@ List upOrDownColor = [
   Colors.teal,
 ];
 
-/// Ml Dummy Graph Points
+/// Ml Graph Points
 List<double> graphXpoints = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 List<double> graphYpoints = [0, 2, 6, 4, 2, 1, 5, 6, 4];
 
-/// The Main Function of Randomization
-Random random = Random();
-int min = 0, max = 2;
-double randomNums = (min + random.nextInt(max - min)) * random.nextDouble();
+/// Section ProgressBar
+double orageProgressBar = 0;
+double greenProgressBar = 0;
+double purpleProgressBar = 0;
