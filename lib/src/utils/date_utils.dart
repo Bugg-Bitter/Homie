@@ -170,7 +170,7 @@ class DateUtilss {
     double num = (min + random.nextDouble() * max) * random.nextDouble();
     // num /= 100;
     num = double.parse(customRound(num, 1));
-    print(num / 100);
+    // if(num/100 > 0)return 0.6;
     return num / 100;
   }
 
@@ -178,6 +178,7 @@ class DateUtilss {
     Random random = Random();
     double num = (min + random.nextInt(max - min)) * random.nextDouble();
     num = double.parse(customRound(num, 1));
+    // if(num > 0)return 0.6;
     return num;
   }
 
@@ -190,6 +191,14 @@ class DateUtilss {
   String customRound(double val, int places) {
     num mod = pow(10.0, places);
     return ((val * mod).round().toDouble() / mod).toStringAsFixed(places);
+  }
+
+  void orangeCondition(){
+
+  }void greenCondition(){
+
+  }void purpleCondition(){
+
   }
 
   static DateTime nextMonth(DateTime m) {

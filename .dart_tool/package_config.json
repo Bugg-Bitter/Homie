@@ -176,6 +176,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_close_app",
+      "rootUri": "file:///Users/buggy/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_close_app-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_phone_direct_caller",
       "rootUri": "file:///Users/buggy/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_phone_direct_caller-2.1.1",
       "packageUri": "lib/",
@@ -608,7 +614,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-01-10T20:06:28.535912Z",
+  "generated": "2023-01-14T09:07:42.036517Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

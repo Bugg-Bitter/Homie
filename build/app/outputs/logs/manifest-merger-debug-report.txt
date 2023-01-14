@@ -63,6 +63,7 @@ MERGED from [:image_picker_android] /Users/buggy/Desktop/homie/build/image_picke
 MERGED from [:flutter_plugin_android_lifecycle] /Users/buggy/Desktop/homie/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] /Users/buggy/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [:path_provider_android] /Users/buggy/Desktop/homie/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:tflite_flutter] /Users/buggy/Desktop/homie/build/tflite_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:shared_preferences_android] /Users/buggy/Desktop/homie/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:open_file] /Users/buggy/Desktop/homie/build/open_file/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-26:12
 MERGED from [:flutter_phone_direct_caller] /Users/buggy/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
@@ -156,6 +157,8 @@ MERGED from [:url_launcher_android] /Users/buggy/Desktop/homie/build/url_launche
 MERGED from [:url_launcher_android] /Users/buggy/Desktop/homie/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/buggy/Desktop/homie/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/buggy/Desktop/homie/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:tflite_flutter] /Users/buggy/Desktop/homie/build/tflite_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:tflite_flutter] /Users/buggy/Desktop/homie/build/tflite_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] /Users/buggy/Desktop/homie/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:shared_preferences_android] /Users/buggy/Desktop/homie/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:open_file] /Users/buggy/Desktop/homie/build/open_file/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-8:41

@@ -163,11 +163,13 @@ List<String> predictionListPages = [
 
 const String dummyPics = "https://picsum.photos/200";
 
-/// The Seciton of Randomization
+/// The Section of suggestions
+
 
 /// FlowChart Scales...
 List<int> xScaleList = [10, 20, 30, 40, 50];
 List<int> yScaleList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
 /// Color Accurate
 List upOrDownColor = [

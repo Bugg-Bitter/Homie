@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_close_app/flutter_close_app.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:homie/src/config/config.dart';
@@ -46,48 +47,57 @@ class _DailyReportUIState extends State<DailyReportUI> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffd7d9ef),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 70.0),
-              child: FutureBuilder(
-                  future:
-                      storage.userProfilePicDownloadURL('${loggedInUserMail}'),
-                  builder:
-                      (BuildContext context, AsyncSnapshot<String> snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done &&
-                        snapshot.hasData) {
-                      return InfoTemplate(
-                          userName: "Sadman Shouviq ",
-                          imageUrl: "${snapshot.data!}");
-                    }
-                    if (snapshot.connectionState == ConnectionState.waiting ||
-                        !snapshot.hasData) {
-                      return InfoTemplate(
-                          userName: "Sadman Shouviq ", imageUrl: "$dummyPics");
-                    } else {
-                      return Container();
-                    }
-                  }),
-            ),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: predictionList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: EdgeInsets.only(
-                          top: 18.0, left: 20.0, right: 20.0, bottom: 20.0),
-                      child: SectionTitle(
-                          sectionTitle: "${predictionList[index]}"),
-                    );
-                  }),
-            ),
-          ],
+    return FlutterCloseAppPage(
+      interval: 2,
+      condition: true,
+      onCloseFailed: () {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Press again to exit 🎉'),
+        ));
+      },
+      child: Scaffold(
+        backgroundColor: Color(0xffd7d9ef),
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 70.0),
+                child: FutureBuilder(
+                    future:
+                        storage.userProfilePicDownloadURL('${loggedInUserMail}'),
+                    builder:
+                        (BuildContext context, AsyncSnapshot<String> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done &&
+                          snapshot.hasData) {
+                        return InfoTemplate(
+                            userName: "Sadman Shouviq ",
+                            imageUrl: "${snapshot.data!}");
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting ||
+                          !snapshot.hasData) {
+                        return InfoTemplate(
+                            userName: "Sadman Shouviq ", imageUrl: "$dummyPics");
+                      } else {
+                        return Container();
+                      }
+                    }),
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: predictionList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                            top: 18.0, left: 20.0, right: 20.0, bottom: 20.0),
+                        child: SectionTitle(
+                            sectionTitle: "${predictionList[index]}"),
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
       ),
     );
