@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/Users/bugg/Desktop/sample/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_text_dark.xml",
-        "source": "/Users/bugg/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_dark.xml"
+        "merged": "/Users/buggy/Desktop/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/buggy/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_tint.xml"
     },
     {
-        "merged": "/Users/bugg/Desktop/sample/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_tint.xml",
-        "source": "/Users/bugg/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_tint.xml"
+        "merged": "/Users/buggy/Desktop/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/buggy/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "/Users/bugg/Desktop/sample/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_text_light.xml",
-        "source": "/Users/bugg/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_light.xml"
+        "merged": "/Users/buggy/Desktop/homie/build/google_maps_flutter_android/intermediates/merged_res/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/buggy/.gradle/caches/transforms-3/19fea4fb28dedd992824e13cc158e7a1/transformed/jetified-play-services-base-18.0.1/res/color/common_google_signin_btn_text_light.xml"
     }
 ]

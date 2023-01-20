@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
             return NavigationStart();
           } else {
             return LoginScreen();
-            // return
           }
         },
       ),

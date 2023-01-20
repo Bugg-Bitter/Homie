@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/merged_res/release/values-el/values-el.xml",
+            "outputFile": "/Users/buggy/Desktop/homie/build/flutter_phone_direct_caller/intermediates/incremental/mergeReleaseResources/merged.dir/values-el/values-el.xml",
             "map": [
                 {
-                    "source": "/Users/bugg/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0/res/values-el/values-el.xml",
+                    "source": "/Users/buggy/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0/res/values-el/values-el.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Users/bugg/Desktop/sample/homie/build/flutter_phone_direct_caller/intermediates/incremental/mergeReleaseResources/merged.dir/values-el/values-el.xml",
+            "outputFile": "/Users/buggy/Desktop/homie/build/flutter_phone_direct_caller/intermediates/merged_res/release/values-el/values-el.xml",
             "map": [
                 {
-                    "source": "/Users/bugg/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0/res/values-el/values-el.xml",
+                    "source": "/Users/buggy/.gradle/caches/transforms-3/aa701b47cec244085d46a1a42fcc7fb9/transformed/core-1.6.0/res/values-el/values-el.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

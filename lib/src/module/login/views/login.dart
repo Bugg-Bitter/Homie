@@ -53,8 +53,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: ScreenHeight / 4.0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(110),
-                    child: SvgPicture.asset('asset/login/doc.svg'),
+                    borderRadius: BorderRadius.circular(40),
+                    child: SvgPicture.asset(
+                      'asset/login/doc.svg',
+                      width: 50,
+                    ),
                   ),
                 ),
                 Padding(
