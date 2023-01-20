@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:homie/src/module/signup/views/signup_UI.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,20 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                ClipPath(
-                  clipper: CustomShape(),
-                  child: Container(
-                    height: 350,
-                    color: KPrimaryColor,
-                  ),
-                ),
+                //
                 Padding(
-                  padding: EdgeInsets.only(top: ScreenHeight / 4.0),
+                  padding: EdgeInsets.only(top: ScreenHeight / 12.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(40),
-                    child: SvgPicture.asset(
-                      'asset/login/doc.svg',
-                      width: 50,
+                    child: Image.asset(
+                      'asset/login/doc.png',
+                      width: ScreenWidth / 1.5,
                     ),
                   ),
                 ),
@@ -178,12 +171,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Log In',
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: 'montserrat',
-                            fontWeight: FontWeight.w800),
+                            fontFamily: 'inder',
+                            fontWeight: FontWeight.w700),
                       ),
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Color(0xFF0B63F6)),
+                            MaterialStateProperty.all<Color>(Color(0xFF4E52B6)),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -211,8 +204,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                           text: 'SIGN UP!',
                           style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            color: Colors.blueAccent,
+                            fontFamily: 'inder',
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xff4E52B6),
                           ),
                         ),
                       ],

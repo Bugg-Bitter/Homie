@@ -67,11 +67,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - asset/login/doc.svg
+    - asset/login/doc.png
     - asset/profile/profile.webp
     - asset/profile/profile.png
     - asset/search/banner.png
-    - asset/signup/bkimg.svg
+    - asset/signup/bkimg.png
     - asset/updatepage/updateBanner.svg
     - asset/updatepage/plus.svg
     - asset/updatepage/black.png
@@ -101,6 +101,16 @@ flutter:
       fonts:
         - asset: asset/fonts/fontawesome6regular.ttf
           weight: 400
+    
+    - family: inder
+      fonts:
+        - asset: asset/fonts/inderregular.ttf
+          weight: 700 
+
+    - family: rubik
+      fonts:
+        - asset: asset/fonts/rubikregular.ttf
+          weight: 600
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

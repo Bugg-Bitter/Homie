@@ -1,4 +1,0 @@
-#Sat Jan 14 16:38:39 BDT 2023
-base.0=/Users/buggy/Desktop/homie/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

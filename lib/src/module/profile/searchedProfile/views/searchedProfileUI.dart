@@ -14,7 +14,7 @@ class SearchedProfileStart extends StatelessWidget {
     required this.assignedHospital,
     required this.specialist,
     required this.department,
-    required this.tracker, 
+    required this.tracker,
     required this.stateTitle,
     // required this.phoneNo
   }) : super(key: key);
@@ -38,7 +38,7 @@ class SearchedProfileStart extends StatelessWidget {
         linkedHospital: assignedHospital,
         linkedSpecialist: specialist,
         linkedDepartment: department,
-        linkedTracker: tracker, 
+        linkedTracker: tracker,
         linkedStateTitle: stateTitle,
       ),
     );
@@ -54,7 +54,7 @@ class SearchedProfileUI extends StatefulWidget {
     required this.linkedHospital,
     required this.linkedSpecialist,
     required this.linkedDepartment,
-    required this.linkedTracker, 
+    required this.linkedTracker,
     required this.linkedStateTitle,
   }) : super(key: key);
 
@@ -96,22 +96,14 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
     return Scaffold(
       floatingActionButton: Padding(
           padding: EdgeInsets.only(
-              left: ScreenWidth / 15.0,
-              right: ScreenWidth / 15.0,
-              bottom: ScreenHeight / 20.0),
+              left: ScreenWidth / 5.0,
+              right: ScreenWidth / 5.0,
+              bottom: ScreenHeight / 90.0),
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromARGB(255, 74, 123, 248),
-                  Color.fromARGB(255, 22, 71, 206),
-                ],
-              ),
-            ),
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xff4E52B6)),
             child: InkWell(
               onTap: () {
                 showDialog(
@@ -140,56 +132,52 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                               Padding(
                                 padding: const EdgeInsets.only(
                                     top: 20.0, bottom: 20.0),
-                                child: Text('Appointment: ${phoneNoList[widget.linkedTracker]}',
+                                child: Text(
+                                    'Appointment: ${phoneNoList[widget.linkedTracker]}',
                                     textAlign: TextAlign.center),
                               ),
                             ],
                           ),
                           actions: [
                             Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 20.0, right: 20.0, bottom: 40.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
+                              padding: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0, bottom: 40.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      colors: [
-                                        Color.fromARGB(255, 74, 123, 248),
-                                        Color.fromARGB(255, 22, 71, 206),
-                                      ],
-                                    ),
-                                  ),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      await FlutterPhoneDirectCaller.callNumber(
-                                          phoneNoList[widget.linkedTracker]);
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(15.0),
-                                      child: Text(
-                                        'Call',
-                                        style: TextStyle(
-                                            fontSize: 16.0,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400),
-                                        textAlign: TextAlign.center,
-                                      ),
+                                    color: Color(0xff4E52B6)),
+                                child: InkWell(
+                                  onTap: () async {
+                                    await FlutterPhoneDirectCaller.callNumber(
+                                        phoneNoList[widget.linkedTracker]);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(15.0),
+                                    child: Text(
+                                      'Call',
+                                      style: TextStyle(
+                                          fontSize: 20.0,
+                                          fontFamily: 'rubik',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
                                 ),
-                                ),
+                              ),
+                            ),
                           ],
                         ));
               },
               child: Padding(
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.only(
+                    left: 15.0, right: 15.0, bottom: 15.0, top: 15.0),
                 child: Text(
                   'Make an Appointment',
                   style: TextStyle(
                       fontSize: 16.0,
+                      fontFamily: 'rubik',
                       color: Colors.white,
                       fontWeight: FontWeight.w400),
                   textAlign: TextAlign.center,
@@ -199,7 +187,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 250, 250, 254),
+        backgroundColor: Color.fromARGB(255, 160, 162, 206),
         centerTitle: true,
         leading: Padding(
           padding: EdgeInsets.fromLTRB(8.0, 5.0, 2.0, 5.0),
@@ -208,7 +196,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
             width: 20.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: Colors.amberAccent,
+              color: Color.fromARGB(255, 108, 108, 224),
             ),
             child: Padding(
               padding: EdgeInsets.only(left: 8.0),
@@ -244,7 +232,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white),
+                        color: Color.fromARGB(255, 161, 161, 229)),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: ListTile(
@@ -296,7 +284,7 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white),
+                        color: Color.fromARGB(255, 161, 161, 229)),
                     child: Padding(
                       padding:
                           EdgeInsets.only(left: 10.0, right: 10.0, top: 15.0),
@@ -308,51 +296,48 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 106, 120, 142),
+                              color: Colors.black,
                             ),
                           ),
                           SizedBox(
                             height: 15.0,
                           ),
                           Text(
-                            'Degree - ${widget.linkedSpecialist}',
+                            'Degree - ${widget.linkedSpecialist}\n',
                             style: TextStyle(
-                              fontSize: 12.0,
+                              fontSize: 14.0,
                               color: Colors.black,
                             ),
                           ),
                           Text(
                             'Designation: Consultant & Coordinator',
                             style: TextStyle(
-                              fontSize: 12.0,
+                              fontSize: 14.0,
                               color: Colors.black,
                             ),
                           ),
                           Text(
                             'Department: ${widget.linkedDepartment}',
                             style: TextStyle(
-                              fontSize: 12.0,
+                              fontSize: 14.0,
                               color: Colors.black,
                             ),
                           ),
                           Text(
                             'Institute: ${widget.linkedHospital}',
                             style: TextStyle(
-                              fontSize: 12.0,
+                              fontSize: 18.0,
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
                           Padding(
-                            padding: EdgeInsets.only(top: ScreenHeight / 20.0),
+                            padding: EdgeInsets.only(top: ScreenHeight / 50.0),
                             child: Text(
                               'Location',
                               style: TextStyle(
-                                fontSize: 16.0,
+                                fontSize: 18.0,
                                 fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 106, 120, 142),
+                                color: Colors.black,
                               ),
                             ),
                           ),
@@ -376,20 +361,20 @@ class _SearchedProfileUIState extends State<SearchedProfileUI> {
                                   markers: {
                                     _doctorsAreaMarker,
                                     Marker(
-                                        markerId: MarkerId('_doctorsArea'),
-                                        infoWindow: InfoWindow(title: 'Doctor'),
-                                        icon: BitmapDescriptor.defaultMarker,
-                                        position: LatLng(
-                                        double.parse(tempMap["long"]!),
-                                        double.parse(tempMap["lat"]!)),
-                                     ),
+                                      markerId: MarkerId('_doctorsArea'),
+                                      infoWindow: InfoWindow(title: 'Doctor'),
+                                      icon: BitmapDescriptor.defaultMarker,
+                                      position: LatLng(
+                                          double.parse(tempMap["long"]!),
+                                          double.parse(tempMap["lat"]!)),
+                                    ),
                                   },
                                 ),
                               ),
                             ),
                           ),
                           SizedBox(
-                            height: 15.0,
+                            height: 54.0,
                           )
                         ],
                       ),
