@@ -81,7 +81,7 @@ class _ProfileUIState extends State<ProfileUI> {
                   height: 100.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
+                    color: Color(0xff8F92CD),
                   ),
                   child: Row(
                     children: [
@@ -95,13 +95,13 @@ class _ProfileUIState extends State<ProfileUI> {
                               if (snapshot.connectionState ==
                                       ConnectionState.done &&
                                   snapshot.hasData) {
-                                return ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Image.network(
-                                    snapshot.data!,
-                                    height: ScreenHeight / 12.0,
-                                    width: ScreenWidth / 7.0,
-                                    fit: BoxFit.cover,
+                                return SizedBox(
+                                  height: 70.0,
+                                  width: 70.0,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      snapshot.data!,
+                                    ),
                                   ),
                                 );
                               }
@@ -156,7 +156,8 @@ class _ProfileUIState extends State<ProfileUI> {
                                         Text(
                                           user.name,
                                           style: TextStyle(
-                                              fontFamily: 'montserrat',
+                                              fontFamily: 'rubik',
+                                              color: Colors.white,
                                               fontWeight: FontWeight.w600),
                                         ),
                                         Row(
@@ -166,7 +167,10 @@ class _ProfileUIState extends State<ProfileUI> {
                                             Icon(
                                               Icons.calendar_today_outlined,
                                               size: 18.0,
-                                              color: Color(0xFF1648CE),
+                                              color: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              width: 10,
                                             ),
                                             Padding(
                                               padding:
@@ -174,7 +178,8 @@ class _ProfileUIState extends State<ProfileUI> {
                                               child: Text(
                                                 user.dob,
                                                 style: TextStyle(
-                                                    color: Colors.black),
+                                                    fontFamily: 'rubik',
+                                                    color: Colors.white),
                                               ),
                                             )
                                           ],
@@ -188,12 +193,16 @@ class _ProfileUIState extends State<ProfileUI> {
                                               Icon(
                                                 Icons.phone_rounded,
                                                 size: 18.0,
-                                                color: Color(0xFF1648CE),
+                                                color: Colors.white,
+                                              ),
+                                              SizedBox(
+                                                width: 10,
                                               ),
                                               Text(
                                                 user.phoneNo,
                                                 style: TextStyle(
-                                                    color: Colors.black),
+                                                    fontFamily: 'rubik',
+                                                    color: Colors.white),
                                               )
                                             ],
                                           ),
@@ -204,7 +213,7 @@ class _ProfileUIState extends State<ProfileUI> {
                           } else {
                             return Center(
                               child: Text('No Image',
-                                  style: TextStyle(color: Colors.black)),
+                                  style: TextStyle(color: Colors.white)),
                             );
                           }
                         },
@@ -213,275 +222,296 @@ class _ProfileUIState extends State<ProfileUI> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 40.0,
-                  right: 40.0,
-                  top: 20.0,
+              Container(
+                margin: EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Color(0xff8F92CD),
                 ),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ViewPageDataStart()));
-                  },
-                  child: Container(
-                    width: double.infinity,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 20.0,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 90.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.0),
+                          color: Color.fromRGBO(255, 255, 255, 0.3),
+                        ),
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.book_rounded,
-                              color: Color(0xFF1648CE),
-                            ),
-                            Text(
-                              'Daily Reports',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: 'montserrat',
-                                  fontWeight: FontWeight.w800),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Icon(
+                                    Icons.person,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 20.0),
+                                  child: Text(
+                                    'My Daily reports',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontFamily: 'rubik',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ViewPageDataStart()));
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 8.0),
-                          child: Text(
-                            'Check Your Medical History',
-                            style: TextStyle(
-                                fontFamily: 'montserrat', fontSize: 10.0),
-                          ),
-                        )
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 40.0,
-                  right: 40.0,
-                  top: 20.0,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 70.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Icon(
-                              Icons.medication_liquid_rounded,
-                              color: Color(0xFF1648CE),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: Text(
-                              'Medical Reports',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: 'montserrat',
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 10.0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Medical_Reports()));
-                              },
-                              child: Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: Color(0XFF1648CE),
-                              ),
-                            ),
-                          ),
-                        ],
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 20.0,
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 40.0,
-                  right: 40.0,
-                  top: 20.0,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 70.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Icon(
-                              Icons.settings,
-                              color: Color(0xFF1648CE),
+                      child: Container(
+                        width: double.infinity,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.0),
+                          color: Color.fromRGBO(255, 255, 255, 0.3),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Icon(
+                                    Icons.medication_liquid_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 20.0),
+                                  child: Text(
+                                    'Medical Reports',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Colors.white,
+                                        fontFamily: 'rubik',
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Medical_Reports()));
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: Text(
-                              'Profile Settings',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: 'montserrat',
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 10.0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext conext) =>
-                                            UpdateProfileStart()));
-                              },
-                              child: Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: Color(0XFF1648CE),
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 40.0,
-                  right: 40.0,
-                  top: 20.0,
-                ),
-                child: Container(
-                  width: double.infinity,
-                  height: 70.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Icon(
-                              Icons.lock_open_rounded,
-                              color: Color(0xFF1648CE),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 20.0),
-                            child: Text(
-                              'Reset Password',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontFamily: 'montserrat',
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 10.0),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (BuildContext conext) =>
-                                            ResetPasswordStart()));
-                              },
-                              child: Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: Color(0XFF1648CE),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 40.0,
-                  right: 40.0,
-                  top: 20.0,
-                  bottom: 20.0,
-                ),
-                child: InkWell(
-                  onTap: () => FirebaseAuth.instance.signOut(),
-                  child: Container(
-                    width: double.infinity,
-                    height: 70.0,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.white,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 10.0),
-                          child: Row(
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 20.0,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.0),
+                          color: Color.fromRGBO(255, 255, 255, 0.3),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Icon(
+                                    Icons.settings,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 20.0),
+                                  child: Text(
+                                    'Account Settings',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontFamily: 'rubik',
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext conext) =>
+                                                  UpdateProfileStart()));
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 20.0,
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Color.fromRGBO(255, 255, 255, 0.3),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 8.0),
+                                  child: Icon(
+                                    Icons.lock_open_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 20.0),
+                                  child: Text(
+                                    'Reset Password',
+                                    style: TextStyle(
+                                        fontSize: 18.0,
+                                        color: Colors.white,
+                                        fontFamily: 'rubik',
+                                        fontWeight: FontWeight.w800),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext conext) =>
+                                                  ResetPasswordStart()));
+                                    },
+                                    child: Icon(
+                                      Icons.arrow_forward_ios_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20.0,
+                        right: 20.0,
+                        top: 20.0,
+                        bottom: 20.0,
+                      ),
+                      child: InkWell(
+                        onTap: () => FirebaseAuth.instance.signOut(),
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          height: 70.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          child: Column(
                             children: [
-                              Icon(
-                                Icons.logout_rounded,
-                                color: Color(0xFF1648CE),
-                              ),
                               Padding(
-                                padding: EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  'Logout',
-                                  style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontFamily: 'montserrat',
-                                      fontWeight: FontWeight.w800),
+                                padding: EdgeInsets.only(left: 10.0),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.logout_rounded,
+                                      color: Colors.white,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 30.0),
+                                      child: Text(
+                                        'Logout',
+                                        style: TextStyle(
+                                            fontSize: 18.0,
+                                            color: Colors.white,
+                                            fontFamily: 'rubik',
+                                            fontWeight: FontWeight.w800),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],
@@ -526,11 +556,9 @@ class User {
     required this.phoneNo,
     required this.name,
     required this.dob,
-
-    // required this.location
   });
 
-  Map<String, dynamic> toJson() => {
+  toJson() => {
         'name': name,
         'dateOfBirth': dob,
         'phone': phoneNo,

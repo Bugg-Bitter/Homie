@@ -9,7 +9,7 @@ class Sectors extends StatefulWidget {
   }) : super(key: key);
 
   final String searchResult;
-  final IconData searchResultIcon;
+  final Image searchResultIcon;
   final Color searchResultColor;
 
   @override
@@ -19,21 +19,31 @@ class Sectors extends StatefulWidget {
 class _SectorsState extends State<Sectors> {
   @override
   Widget build(BuildContext context) {
+    double ScreenWidth = MediaQuery.of(context).size.width;
+    double ScreenHeight = MediaQuery.of(context).size.height;
     return Container(
       height: 80.0,
       width: 80.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xFFFAE9E9),
+        color: Colors.white,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            widget.searchResultIcon,
-            color: widget.searchResultColor,
+          SizedBox(
+            child: widget.searchResultIcon,
+            height: ScreenWidth / 8.0,
           ),
-          Text('${widget.searchResult}'),
+          Padding(
+            padding: EdgeInsets.only(top: 2.0),
+            child: Text(
+              '${widget.searchResult}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ],
       ),
     );

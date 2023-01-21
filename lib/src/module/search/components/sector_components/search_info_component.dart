@@ -24,10 +24,10 @@ class InfoComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(left: 40.0, right: 40.0, top: ScreenHeight / 130.0),
+          EdgeInsets.only(left: 10.0, right: 10.0, top: ScreenHeight / 40.0),
       child: Container(
         width: double.infinity,
-        height: 70.0,
+        height: 130.0,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20.0),
@@ -42,24 +42,21 @@ class InfoComponent extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(left: 13.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(13.0),
-                      child: Image.network(
-                        imageLink,
-                        height: 50.0,
-                        width: 50.0,
-                      ),
+                    child: Image.network(
+                      imageLink,
+                      height: 90.0,
+                      width: 90.0,
                     ),
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Text(
                           '${listNames[index]}',
                           style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.w700),
+                              fontSize: 24.0, fontWeight: FontWeight.w700),
                         ),
                       ),
                       currentStateTitle == 'Doctor'
@@ -69,7 +66,7 @@ class InfoComponent extends StatelessWidget {
                                 textAlign: TextAlign.left,
                                 '${listInfo[index]}',
                                 style: TextStyle(
-                                    fontSize: 14.0,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.w700),
                               ),
                             )
@@ -93,16 +90,13 @@ class InfoComponent extends StatelessWidget {
                                   )));
                     },
                     child: Container(
-                      height: 35.0,
-                      width: 35.0,
+                      height: 40.0,
+                      width: 40.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: Icon(
-                        Icons.arrow_forward_rounded,
-                        color: Color(0xFF1648CE),
-                      ),
+                      child: Image.asset('asset/search/arrow.png'),
                     ),
                   ),
                 ],

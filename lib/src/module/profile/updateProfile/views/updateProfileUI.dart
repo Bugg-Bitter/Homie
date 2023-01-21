@@ -33,20 +33,21 @@ class UpdateProfileUI extends StatefulWidget {
 }
 
 class _UpdateProfileUIState extends State<UpdateProfileUI> {
-    File? image;
-    
+  File? image;
+
   Future _chooseImage() async {
     try {
       XFile? image = await ImagePicker().pickImage(
         source: ImageSource.gallery,
-    );
-    if(image == null) return;
-    final imageTemp = File(image.path);
-    setState(() => this.image = imageTemp);
+      );
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
     } on PlatformException catch (e) {
       print('failed');
     }
-}
+  }
+
   final picker = ImagePicker();
   bool _secureText = true;
   TextEditingController updatedNameController = TextEditingController();
@@ -55,14 +56,14 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
   TextEditingController updatedDOBController = TextEditingController();
   TextEditingController updatedCellController = TextEditingController();
   TextEditingController updatedPasswordController = TextEditingController();
-  
+
   String? loggedInUserMail = '';
   @override
   void initState() {
-    
     super.initState();
     getEmail();
   }
+
   @override
   Widget build(BuildContext context) {
     double ScreenWidth = MediaQuery.of(context).size.width;
@@ -109,33 +110,33 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                         onTap: () {
                           _chooseImage();
                         },
-                        child: image != null ? 
-                        CircleAvatar(
-                          backgroundImage:FileImage(image!),
-                          radius: 55,
-                        )
-                         :
-                        CircleAvatar(
-                          backgroundImage:
-                              AssetImage('asset/updatepage/black.png'),
-                          radius: 55,
-                        ),
+                        child: image != null
+                            ? CircleAvatar(
+                                backgroundImage: FileImage(image!),
+                                radius: 55,
+                              )
+                            : CircleAvatar(
+                                backgroundImage:
+                                    AssetImage('asset/updatepage/black.png'),
+                                radius: 55,
+                              ),
                       ),
-                      image == null ?
-                      GestureDetector(
-                        onTap: () {
-                          _chooseImage();
-                        },
-                        child: SvgPicture.asset(
-                          'asset/updatepage/plus.svg',
-                          color: Colors.white,
-                          height: 60,
-                        ),
-                      ):Container(),
+                      image == null
+                          ? GestureDetector(
+                              onTap: () {
+                                _chooseImage();
+                              },
+                              child: SvgPicture.asset(
+                                'asset/updatepage/plus.svg',
+                                color: Colors.white,
+                                height: 60,
+                              ),
+                            )
+                          : Container(),
                     ],
                   ),
                 ),
-          
+
                 /// Updated Name
                 Padding(
                   padding: EdgeInsets.only(
@@ -166,7 +167,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
-          
+
                 /// Updated Gender
                 Padding(
                   padding: EdgeInsets.only(
@@ -197,7 +198,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
-          
+
                 /// updated Mail
                 Padding(
                   padding: EdgeInsets.only(
@@ -228,7 +229,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
-          
+
                 /// updated Date
                 Padding(
                   padding: EdgeInsets.only(
@@ -259,7 +260,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
-          
+
                 /// updated Phone no.
                 Padding(
                   padding: EdgeInsets.only(
@@ -290,6 +291,7 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                     },
                   ),
                 ),
+
                 /// updated Password no.
                 Padding(
                   padding: EdgeInsets.only(
@@ -322,26 +324,26 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                    top: ScreenHeight / 19.0,
-                    bottom: ScreenHeight / 20.0
-                  ),
+                      top: ScreenHeight / 19.0, bottom: ScreenHeight / 20.0),
                   child: SizedBox(
                     width: ScreenWidth / 2.0,
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
                         updateInfoTracker++;
-                        final docUser = FirebaseFirestore.instance.collection('newUser').doc(loggedInUserMail);
+                        final docUser = FirebaseFirestore.instance
+                            .collection('newUser')
+                            .doc(loggedInUserMail);
                         docUser.update({
-                          'name':updatedNameController.text,
-                          'password':updatedPasswordController.text,
-                          'phone':updatedCellController.text,
-                          'gender':updatedGenderController.text,
-                          'email':updatedEmailController.text,
-                          'dateOfBirth':updatedDOBController.text,
+                          'name': updatedNameController.text,
+                          'password': updatedPasswordController.text,
+                          'phone': updatedCellController.text,
+                          'gender': updatedGenderController.text,
+                          'email': updatedEmailController.text,
+                          'dateOfBirth': updatedDOBController.text,
                         });
                         _updatedUser(updatedEmailController.text,
-                        updatedPasswordController.text);
+                            updatedPasswordController.text);
                         uploadProfilePic();
 
                         updatedNameController.clear();
@@ -361,7 +363,8 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Color(0xFF0B63F6)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
@@ -377,45 +380,54 @@ class _UpdateProfileUIState extends State<UpdateProfileUI> {
       ),
     );
   }
-  Future _updatedUser(String newEmail,String newPass)async{
-  try {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(email: newEmail, password: newPass);
-    print('Successfully created new user !');
-  } on FirebaseAuthException catch (e) {
-    print("Exception is $e");
+
+  Future _updatedUser(String newEmail, String newPass) async {
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: newEmail, password: newPass);
+      print('Successfully created new user !');
+    } on FirebaseAuthException catch (e) {
+      print("Exception is $e");
+    }
   }
-}
+
   Future<String?> getEmail() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-     setState(() {
-       loggedInUserMail = prefs.getString('userEmail');
-       print(loggedInUserMail);
-     });
-     return loggedInUserMail;
+    setState(() {
+      loggedInUserMail = prefs.getString('userEmail');
+      print(loggedInUserMail);
+    });
+    return loggedInUserMail;
   }
-Future uploadProfilePic()async {
 
-  if(image == null){
-    return;
+  Future uploadProfilePic() async {
+    if (image == null) {
+      return;
+    }
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('updatedName', updatedNameController.text);
+    prefs.setString('updatedBirth', updatedDOBController.text);
+    prefs.setString('updatedPhone', updatedCellController.text);
+
+    print('${prefs.getString('updatedName')}');
+    print('${prefs.getString('updatedBirth')}');
+    print('${prefs.getString('updatedPhone')}');
+
+    final filename = loggedInUserMail;
+    final destination = 'newUsersProfilePic/$filename';
+    FirebaseApi.uploadFile(destination, image!);
   }
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('updatedName', updatedNameController.text);
-      prefs.setString('updatedBirth', updatedDOBController.text);
-      prefs.setString('updatedPhone', updatedCellController.text);
-  final filename = loggedInUserMail;
-  final destination = 'newUsersProfilePic/$filename';
-  FirebaseApi.uploadFile(destination,image!);
 }
-}
+
 Future createNewUser(
     {required String newName,
-      required String newGender,
-      required String newEmail,
-      required String newDOB,
-      required String newPhone,
-      required String newPassword}) async {
+    required String newGender,
+    required String newEmail,
+    required String newDOB,
+    required String newPhone,
+    required String newPassword}) async {
   final newPersonInfo =
-  FirebaseFirestore.instance.collection('newUser').doc(newEmail);
+      FirebaseFirestore.instance.collection('newUser').doc(newEmail);
   final jsonData = {
     'name': newName,
     'gender': newGender,
@@ -426,5 +438,4 @@ Future createNewUser(
   };
 
   await newPersonInfo.set(jsonData);
-
 }

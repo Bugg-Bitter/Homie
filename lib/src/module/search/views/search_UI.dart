@@ -43,29 +43,42 @@ class _SearchUIState extends State<SearchUI> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          color: Color(0xFFFAFAFE),
+          color: Color.fromARGB(255, 194, 194, 244),
           child: Column(
             children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  UIBanner(),
-                  CustomSearchBar(
-                      ScreenWidth: ScreenWidth, ScreenHeight: ScreenHeight),
-                ],
+              // Stack(
+              //   alignment: Alignment.center,
+              //   children: [
+              //     UIBanner(),
+              //     CustomSearchBar(
+              //         ScreenWidth: ScreenWidth, ScreenHeight: ScreenHeight),
+              //   ],
+              // ),
+              Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 10.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                        fontFamily: 'rubik',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0),
+                  ),
+                ),
               ),
               detecedSectors(),
               Padding(
-                padding: EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: 50.0),
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
                     'Search Results for $selectedSectorName',
                     style: TextStyle(
-                      fontFamily: 'montserrat',
-                      fontSize: 20.0,
+                      fontFamily: 'rubik',
+                      fontSize: 24.0,
                       fontWeight: FontWeight.w800,
-                      color: Color(0xFF6A788E),
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -91,20 +104,20 @@ class _SearchUIState extends State<SearchUI> {
             onTap: () {
               selectedSector('Doctor');
             },
-            child: const Sectors(
+            child: Sectors(
               searchResult: 'Doctor',
               searchResultColor: Colors.orangeAccent,
-              searchResultIcon: Icons.medical_services_rounded,
+              searchResultIcon: Image.asset('asset/search/doctor.png'),
             ),
           ),
           GestureDetector(
             onTap: () {
               selectedSector('Pharmacy');
             },
-            child: const Sectors(
+            child: Sectors(
               searchResult: 'Pharmacy',
               searchResultColor: Colors.blueAccent,
-              searchResultIcon: Icons.local_pharmacy_rounded,
+              searchResultIcon: Image.asset('asset/search/pharmacy.png'),
             ),
           ),
           GestureDetector(
@@ -114,7 +127,7 @@ class _SearchUIState extends State<SearchUI> {
             child: Sectors(
               searchResult: 'Hospital',
               searchResultColor: Colors.redAccent,
-              searchResultIcon: Icons.local_hospital_rounded,
+              searchResultIcon: Image.asset('asset/search/hospital.png'),
             ),
           ),
         ],
