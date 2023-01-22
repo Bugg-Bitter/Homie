@@ -184,5 +184,22 @@ double orageProgressBar = 0;
 double greenProgressBar = 0;
 double purpleProgressBar = 0;
 
-/// avg health controller
 int healthFlag = 0;
+String bodyTemKey = DateFormat("dd").format(DateTime.now()) + "BodyTem";
+String heartRateKey = DateFormat("dd").format(DateTime.now()) + "HeartRate";
+String breathingRateKey =
+    DateFormat("dd").format(DateTime.now()) + "breathingRate";
+String bloodPressureKey =
+    DateFormat("dd").format(DateTime.now()) + "bloodPressure";
+String booldSugarKey = DateFormat("dd").format(DateTime.now()) + "booldSugar";
+String ohtersKey = DateFormat("dd").format(DateTime.now()) + "ohters";
+
+int bodyTemInt = 0;
+int heartRateInt = 0;
+int breathingRateInt = 0;
+int bloodPressureInt = 0;
+int bloodSugarTemInt = 0;
+int othersInt = 0;
+
+int hs = 0;
+String hsKey = DateFormat("dd").format(DateTime.now()) + "hs";

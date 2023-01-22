@@ -182,6 +182,10 @@ class DateUtilss {
     return num;
   }
 
+  int healthScrorePredict(int min, int max) {
+    return min + Random().nextInt(max - min);
+  }
+
   bool multiLinearRegressionBool() {
     Random random = Random();
 

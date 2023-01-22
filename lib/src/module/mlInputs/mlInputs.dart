@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:homie/src/module/finalMlOut/final_ml_out.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../config/config.dart';
 import '../dailyReport/updatePage/components/back_button_ttile.dart';
@@ -32,7 +34,6 @@ class MlInputsUI extends StatefulWidget {
 }
 
 class _MlInputsUIState extends State<MlInputsUI> {
-  String? loggedInUserMail = '';
   TextEditingController param1 = TextEditingController();
   TextEditingController param2 = TextEditingController();
   TextEditingController param3 = TextEditingController();
@@ -41,8 +42,39 @@ class _MlInputsUIState extends State<MlInputsUI> {
   String checkParam2 = '';
   String checkParam3 = '';
   String checkParam4 = '';
+  String? loggedInUserMail = '';
+  String? userName = '';
+  String? userDOB = '';
+  String? userPhone = '';
+
+  getSectionFlag() async {
+    SharedPreferences _pref = await SharedPreferences.getInstance();
+    if (widget.sectionName == 'Body Temperature') {
+      _pref.setInt("$bodyTemKey", 1);
+    } else if (widget.sectionName == 'Heart Rate') {
+      _pref.setInt("$heartRateKey", 1);
+    } else if (widget.sectionName == 'Breathing Rate') {
+      _pref.setInt("$breathingRateKey", 1);
+    } else if (widget.sectionName == 'Blood Pressure') {
+      _pref.setInt("$bloodPressureKey", 1);
+    } else if (widget.sectionName == 'Blood Sugar') {
+      _pref.setInt("$booldSugarKey", 1);
+    } else {
+      _pref.setInt("$ohtersKey", 1);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getEmail();
+    getOtherInfo();
+    getSectionFlag();
+  }
+
   @override
   Widget build(BuildContext context) {
+    double ScreenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xffd7d9ef),
@@ -67,26 +99,104 @@ class _MlInputsUIState extends State<MlInputsUI> {
                     ],
                   ),
                 ),
-                FutureBuilder(
-                    future: storage
-                        .userProfilePicDownloadURL('${loggedInUserMail}'),
-                    builder:
-                        (BuildContext context, AsyncSnapshot<String> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done &&
-                          snapshot.hasData) {
-                        return InfoTemplate(
-                            userName: "Sadman Shouviq ",
-                            imageUrl: "${snapshot.data!}");
-                      }
-                      if (snapshot.connectionState == ConnectionState.waiting ||
-                          !snapshot.hasData) {
-                        return InfoTemplate(
-                            userName: "Sadman Shouviq ",
-                            imageUrl: "$dummyPics");
-                      } else {
-                        return Container();
-                      }
-                    }),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      FutureBuilder<User?>(
+                        future: readUserInfo(),
+                        builder:
+                            (BuildContext context, AsyncSnapshot snapshot) {
+                          if (snapshot.hasError) {
+                            return Padding(
+                              padding:
+                                  EdgeInsets.only(left: ScreenHeight / 30.0),
+                              child: Text(
+                                'Unable to load data',
+                                style: TextStyle(
+                                    fontSize: 14.0, color: Colors.black),
+                              ),
+                            );
+                          } else if (snapshot.hasData) {
+                            final user = snapshot.data;
+                            return user == null
+                                ? Center(
+                                    child: Text('No User Found'),
+                                  )
+                                : Padding(
+                                    padding: EdgeInsets.only(
+                                        bottom: 10.0, left: 10.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          " Hi, ${user.name}",
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              fontFamily: 'rubik',
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                          } else {
+                            return Center(
+                              child: Text('Loading ...',
+                                  style: TextStyle(color: Colors.black)),
+                            );
+                          }
+                        },
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(right: 13.0, top: 5.0, bottom: 5.0),
+                        child: FutureBuilder(
+                            future: storage.userProfilePicDownloadURL(
+                                '${loggedInUserMail}'),
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
+                              if (snapshot.connectionState ==
+                                      ConnectionState.done &&
+                                  snapshot.hasData) {
+                                return SizedBox(
+                                  height: 60.0,
+                                  width: 60.0,
+                                  child: CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                      snapshot.data!,
+                                    ),
+                                  ),
+                                );
+                              }
+                              if (snapshot.connectionState ==
+                                      ConnectionState.waiting ||
+                                  !snapshot.hasData) {
+                                return Center(
+                                    child: Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 8.0, right: 8.0),
+                                  child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      child: Text(
+                                        ' No\nImg',
+                                        style: TextStyle(
+                                            fontSize: 8.0, color: Colors.black),
+                                      )),
+                                ));
+                              } else {
+                                return Container();
+                              }
+                            }),
+                      ),
+                    ],
+                  ),
+                ),
                 MlInputsSection(section: widget.sectionName),
                 Padding(
                   padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 30.0),
@@ -224,17 +334,19 @@ class _MlInputsUIState extends State<MlInputsUI> {
                                   } else {
                                     checkParam4 = "";
                                     Navigator.of(context).pushReplacement(
-                                        MaterialPageRoute(
-                                            builder: (((context) =>
-                                                FinalMlOutStart(
-                                                    inParam1: param1.text,
-                                                    inParam2: param2.text,
-                                                    inParam3: param3.text,
-                                                    inParam4: param4.text)))));
+                                      MaterialPageRoute(
+                                        builder: (((context) => FinalMlOutStart(
+                                              inSection: widget.sectionName,
+                                              inParam1: param1.text,
+                                              inParam2: param2.text,
+                                              inParam3: param3.text,
+                                              inParam4: param4.text,
+                                            ))),
+                                      ),
+                                    );
                                   }
                                 }
                               }
-                              // param1.text = "";
                             }
                           });
                         },
@@ -253,4 +365,53 @@ class _MlInputsUIState extends State<MlInputsUI> {
       ),
     );
   }
+
+  Future<void> getOtherInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userName = prefs.getString('updatedName');
+      userDOB = prefs.getString('updatedBirth');
+      userPhone = prefs.getString('updatedPhone');
+    });
+  }
+
+  Future<User?> readUserInfo() async {
+    final onlyDocUser =
+        FirebaseFirestore.instance.collection('newUser').doc(loggedInUserMail);
+    final snapshot = await onlyDocUser.get();
+    if (snapshot.exists) return User.fromJson(snapshot.data()!);
+  }
+
+  Future<String?> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      loggedInUserMail = prefs.getString('userEmail');
+      print(loggedInUserMail);
+    });
+    return loggedInUserMail;
+  }
+}
+
+class User {
+  final String name;
+  final String dob;
+  final String phoneNo;
+
+  User({
+    required this.phoneNo,
+    required this.name,
+    required this.dob,
+  });
+
+  toJson() => {
+        'name': name,
+        'dateOfBirth': dob,
+        'phone': phoneNo,
+      };
+
+  static User fromJson(Map<String, dynamic> json) => User(
+        name: json['name'],
+        dob: json['dateOfBirth'],
+        phoneNo: json['phone'],
+      );
 }

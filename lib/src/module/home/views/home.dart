@@ -38,6 +38,14 @@ class _HomeUIState extends State<HomeUI> {
   String? userName = '';
   String? userDOB = '';
   String? userPhone = '';
+  int healthScrore = 0;
+
+  retriveHealthInfo() async {
+    SharedPreferences _ = await SharedPreferences.getInstance();
+    setState(() {
+      healthScrore = _.getInt(hsKey) ?? 0;
+    });
+  }
 
   @override
   void initState() {
@@ -49,6 +57,7 @@ class _HomeUIState extends State<HomeUI> {
         ScrollController(initialScrollOffset: 80.0 * currentDateTime.day);
     getEmail();
     getOtherInfo();
+    retriveHealthInfo();
   }
 
   @override
@@ -205,7 +214,7 @@ class _HomeUIState extends State<HomeUI> {
                                 color: Color(0xff4E52B6), fontSize: 20.0),
                           ),
                           Text(
-                            '87%',
+                            '${healthScrore}%',
                             style: TextStyle(
                                 fontSize: 80.0,
                                 color: Color(0xff4E52B6),
@@ -215,7 +224,18 @@ class _HomeUIState extends State<HomeUI> {
                       ),
                     ),
                   ),
-                  Text("$healthFlag")
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text(
+                      healthScrore < 41
+                          ? "Visit doctor as soon as possible"
+                          : healthScrore < 61
+                              ? "Take a basic health check up"
+                              : "Just keep a healthy diet",
+                      style:
+                          TextStyle(color: Color(0xff6f6f6f), fontSize: 18.0),
+                    ),
+                  ),
                 ],
               ),
             ),

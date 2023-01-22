@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_close_app/flutter_close_app.dart';
 import 'package:homie/src/utils/date_utils.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../config/config.dart';
 import '../../utils/drawDownTriangles.dart';
@@ -16,19 +17,21 @@ class FinalMlOutStart extends StatelessWidget {
   final String inParam2;
   final String inParam3;
   final String inParam4;
+  final String inSection;
   const FinalMlOutStart({
     super.key,
     required this.inParam1,
     required this.inParam2,
     required this.inParam3,
     required this.inParam4,
+    required this.inSection,
   });
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FinalMlOutUI(finalSectionName: 'Body Temperature'),
+      home: FinalMlOutUI(finalSectionName: inSection),
     );
   }
 }
@@ -52,6 +55,29 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
   bool isGreen = false;
   bool isPurple = false;
 
+  retriveValues() async {
+    SharedPreferences _pref = await SharedPreferences.getInstance();
+    bodyTemInt = _pref.getInt(bodyTemKey) ?? 0;
+    heartRateInt = _pref.getInt(heartRateKey) ?? 0;
+    breathingRateInt = _pref.getInt(breathingRateKey) ?? 0;
+    bloodPressureInt = _pref.getInt(bloodPressureKey) ?? 0;
+    bloodSugarTemInt = _pref.getInt(booldSugarKey) ?? 0;
+    othersInt = _pref.getInt(ohtersKey) ?? 0;
+    int checks = bodyTemInt +
+        heartRateInt +
+        breathingRateInt +
+        bloodPressureInt +
+        bloodSugarTemInt +
+        othersInt;
+    print("Checks is = $checks");
+    checks = 0;
+    int s = _pref.getInt(hsKey) ?? 0;
+    print(s);
+    if (s == 0) {
+      _pref.setInt(hsKey, DateUtilss().healthScrorePredict(35, 85));
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -70,6 +96,7 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
     isOrange = DateUtilss().multiLinearRegressionBool();
     isGreen = DateUtilss().multiLinearRegressionBool();
     isPurple = DateUtilss().multiLinearRegressionBool();
+    retriveValues();
   }
 
   @override

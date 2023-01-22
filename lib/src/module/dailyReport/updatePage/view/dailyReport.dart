@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_close_app/flutter_close_app.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:homie/src/config/config.dart';
-import 'package:homie/src/utils/date_utils.dart' as date_util;
 
 import '../../../search/config/search_config.dart';
-import '../components/back_button_ttile.dart';
-import '../components/homebackbutton.dart';
 import '../components/section_title.dart';
 import '../components/user_info_template.dart';
 
@@ -77,9 +73,13 @@ class _DailyReportUIState extends State<DailyReportUI> {
                       }
                       if (snapshot.connectionState == ConnectionState.waiting ||
                           !snapshot.hasData) {
-                        return InfoTemplate(
-                            userName: "Sadman Shouviq ",
-                            imageUrl: "$dummyPics");
+                        return Text(
+                          "Loading",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 24.0,
+                              fontFamily: 'rubik'),
+                        );
                       } else {
                         return Container();
                       }
