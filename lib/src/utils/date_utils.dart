@@ -193,13 +193,9 @@ class DateUtilss {
     return ((val * mod).round().toDouble() / mod).toStringAsFixed(places);
   }
 
-  void orangeCondition(){
-
-  }void greenCondition(){
-
-  }void purpleCondition(){
-
-  }
+  void orangeCondition() {}
+  void greenCondition() {}
+  void purpleCondition() {}
 
   static DateTime nextMonth(DateTime m) {
     var year = m.year;

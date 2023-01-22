@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_close_app/flutter_close_app.dart';
 import 'package:homie/src/config/config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:homie/src/config/config.dart';
-// import 'package:homie/src/utils/date_utils.dart' as date_util;
+import 'package:homie/src/config/config.dart';
+import 'package:homie/src/utils/date_utils.dart' as date_util;
 
 import '../../../search/config/search_config.dart';
 import '../components/back_button_ttile.dart';
@@ -65,8 +65,8 @@ class _DailyReportUIState extends State<DailyReportUI> {
               Padding(
                 padding: EdgeInsets.only(top: 70.0),
                 child: FutureBuilder(
-                    future:
-                        storage.userProfilePicDownloadURL('${loggedInUserMail}'),
+                    future: storage
+                        .userProfilePicDownloadURL('${loggedInUserMail}'),
                     builder:
                         (BuildContext context, AsyncSnapshot<String> snapshot) {
                       if (snapshot.connectionState == ConnectionState.done &&
@@ -78,7 +78,8 @@ class _DailyReportUIState extends State<DailyReportUI> {
                       if (snapshot.connectionState == ConnectionState.waiting ||
                           !snapshot.hasData) {
                         return InfoTemplate(
-                            userName: "Sadman Shouviq ", imageUrl: "$dummyPics");
+                            userName: "Sadman Shouviq ",
+                            imageUrl: "$dummyPics");
                       } else {
                         return Container();
                       }
