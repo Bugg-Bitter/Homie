@@ -202,7 +202,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                       percent: orageProgressBar.toDouble(),
                                       progressColor: Colors.white,
                                       radius: 37.0,
-                                      circularStrokeCap: CircularStrokeCap.round,
+                                      circularStrokeCap:
+                                          CircularStrokeCap.round,
                                       animation: true,
                                       animationDuration: 1000,
                                     ),
@@ -239,7 +240,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                       percent: greenProgressBar,
                                       progressColor: Colors.white,
                                       radius: 37.0,
-                                      circularStrokeCap: CircularStrokeCap.round,
+                                      circularStrokeCap:
+                                          CircularStrokeCap.round,
                                       animation: true,
                                       animationDuration: 1000,
                                     ),
@@ -276,7 +278,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                       percent: purpleProgressBar,
                                       progressColor: Colors.white,
                                       radius: 37.0,
-                                      circularStrokeCap: CircularStrokeCap.round,
+                                      circularStrokeCap:
+                                          CircularStrokeCap.round,
                                       animation: true,
                                       animationDuration: 1000,
                                     ),
@@ -307,7 +310,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                         0.5,
                                         0.7
                                       ]),
-                                      borderRadius: BorderRadius.circular(50.0)),
+                                      borderRadius:
+                                          BorderRadius.circular(50.0)),
                                 ),
                                 Text(
                                   " $orangeStateVal",
@@ -336,7 +340,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                         0.0,
                                         0.7
                                       ]),
-                                      borderRadius: BorderRadius.circular(50.0)),
+                                      borderRadius:
+                                          BorderRadius.circular(50.0)),
                                 ),
                                 Text(
                                   " $greenStateVal",
@@ -365,7 +370,8 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                                         0.0,
                                         0.7
                                       ]),
-                                      borderRadius: BorderRadius.circular(50.0)),
+                                      borderRadius:
+                                          BorderRadius.circular(50.0)),
                                 ),
                                 Text(
                                   " $purpleStateVal",
@@ -403,7 +409,6 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Padding(
                             padding: EdgeInsets.all(10.0),
                             child: Text(
@@ -415,7 +420,11 @@ class _FinalMlOutUIState extends State<FinalMlOutUI> {
                           Padding(
                             padding: EdgeInsets.all(10.0),
                             child: Text(
-                             orangeStateVal < 31 ? "Visit doctor as soon as possible" : orangeStateVal < 61 ?"Take a basic health check up" : "Just keep a healthy diet",
+                              orangeStateVal < 31
+                                  ? "Visit doctor as soon as possible"
+                                  : orangeStateVal < 61
+                                      ? "Take a basic health check up"
+                                      : "Just keep a healthy diet",
                               style: TextStyle(
                                   color: Color(0xff6f6f6f), fontSize: 18.0),
                             ),

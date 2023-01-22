@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:homie/src/utils/date_utils.dart' as date_util;
 
+import '../../../config/config.dart';
 import '../../search/config/search_config.dart';
 
 class HomeStart extends StatelessWidget {
@@ -214,7 +215,7 @@ class _HomeUIState extends State<HomeUI> {
                       ),
                     ),
                   ),
-                  Text("Lorem Ipsam")
+                  Text("$healthFlag")
                 ],
               ),
             ),
