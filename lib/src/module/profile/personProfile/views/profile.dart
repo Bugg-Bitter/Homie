@@ -7,7 +7,7 @@ import 'package:homie/src/module/search/config/search_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../dailyReport/viewPage/view/viewPage.dart';
-import '../../../medicalReport/views/medical_reports.dart';
+import '../../../medicalReport/views/view_report.dart';
 
 class ProfileStart extends StatelessWidget {
   const ProfileStart({super.key});
@@ -334,7 +334,7 @@ class _ProfileUIState extends State<ProfileUI> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  Medical_Reports()));
+                                                  reportView()));
                                     },
                                     child: Icon(
                                       Icons.arrow_forward_ios_rounded,

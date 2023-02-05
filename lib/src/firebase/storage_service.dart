@@ -3,7 +3,8 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
 class Storage {
-  final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
+  final firebase_storage.FirebaseStorage storage =
+      firebase_storage.FirebaseStorage.instance;
 
   // Upload Users Profile Pictures
   Future<void> uploadFile(
@@ -19,50 +20,47 @@ class Storage {
     }
   }
 
-
   // Get Doctor Pictures List...
   Future<firebase_storage.ListResult> listFiles() async {
-    firebase_storage.ListResult results = await storage.ref('doctors').listAll();
+    firebase_storage.ListResult results =
+        await storage.ref('doctors').listAll();
 
-    results.items.forEach((firebase_storage.Reference ref) { 
+    results.items.forEach((firebase_storage.Reference ref) {
       print('Found file: $ref');
     });
     return results;
   }
 
-
   // Load Doctors Pictures
   Future<String> docDownloadURL(String imageName) async {
-    String downloadURL = await storage.ref('doctors/$imageName').getDownloadURL();
+    String downloadURL =
+        await storage.ref('doctors/$imageName').getDownloadURL();
     return downloadURL;
   }
-
-
 
   // Load Hospitals Pictures
   Future<String> hosDownloadURL(String imageName) async {
-    String downloadURL = await storage.ref('hospitals/$imageName').getDownloadURL();
+    String downloadURL =
+        await storage.ref('hospitals/$imageName').getDownloadURL();
     return downloadURL;
   }
 
-
-
   // Load Pharmacies Pictures
-    Future<String> pharmDownloadURL(String imageName) async {
-    String downloadURL = await storage.ref('pharmacies/$imageName').getDownloadURL();
+  Future<String> pharmDownloadURL(String imageName) async {
+    String downloadURL =
+        await storage.ref('pharmacies/$imageName').getDownloadURL();
     return downloadURL;
   }
 
   // User Pictures ....
   Future<String> userProfilePicDownloadURL(String imageName) async {
-    String downloadURL = await storage.ref('newUsersProfilePic/$imageName').getDownloadURL();
+    String downloadURL =
+        await storage.ref('newUsersProfilePic/$imageName').getDownloadURL();
     return downloadURL;
   }
-  
-    Future<String> medicalReportsDownloadURL(String imageName) async {
-    String downloadURL = await storage.ref('medicalReports/$imageName').getDownloadURL();
+
+  Future<String> medicalReportsDownloadURL(String imageName) async {
+    String downloadURL = await storage.ref('$imageName').getDownloadURL();
     return downloadURL;
   }
 }
-
-

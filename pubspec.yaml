@@ -25,6 +25,7 @@ dependencies:
   percent_indicator: ^4.2.2
   tflite_flutter: ^0.9.0
   flutter_close_app: ^1.0.0
+  transparent_image: ^2.0.0
 
   ### Firebase Section
   #Firebase_Initialized
